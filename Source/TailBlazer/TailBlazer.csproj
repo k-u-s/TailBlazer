@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EBF74AA2-F4C2-4AE9-A6CF-33F3414893B7}</ProjectGuid>
+    <ProjectGuid>{EBF74AA2-F4C2-4AE9-A6CF-33F3414893B8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TailBlazer</RootNamespace>
@@ -38,10 +38,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>TailBlazer.BootStrap</StartupObject>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>tailblazer.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dragablz, Version=0.0.3.197, Culture=neutral, processorArchitecture=MSIL">
@@ -252,7 +250,6 @@
     <Compile Include="Infrastucture\AppConventions.cs" />
     <Compile Include="AppRegistry.cs" />
     <Compile Include="Infrastucture\BooleanToVisibilityConverter.cs" />
-    <Compile Include="BootStrap.cs" />
     <Compile Include="Infrastucture\Command.cs" />
     <Compile Include="Infrastucture\DependencyObjectHook.cs" />
     <Compile Include="Infrastucture\IntertabClient.cs" />
@@ -350,9 +347,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Log4Net.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -364,16 +358,10 @@
     <None Include="Resources\log4net.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\TailBlazer.Domain\TailBlazer.Domain.csproj">
       <Project>{332f8beb-1743-4b41-8953-a66a57f2503d}</Project>
       <Name>TailBlazer.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="tailblazer.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FodyWeavers.xml" />

@@ -14,7 +14,7 @@ using ILogger = TailBlazer.Domain.Infrastructure.ILogger;
 
 namespace TailBlazer.Infrastucture
 {
-    internal class AppRegistry : Registry
+    public class AppRegistry : Registry
     {
         public AppRegistry()
         {

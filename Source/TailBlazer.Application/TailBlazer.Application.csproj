@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net45</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <StartupObject>TailBlazer.Application.BootStrap</StartupObject>
+    <ApplicationIcon>tailblazer.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dragablz" version="0.0.3.197" />
+    <PackageReference Include="DynamicData" version="6.2.0.2388" />
+    <PackageReference Include="log4net" version="2.0.3" />
+    <PackageReference Include="MahApps.Metro" version="1.5.0" />
+    <PackageReference Include="MaterialDesignColors" version="1.1.2" />
+    <PackageReference Include="MaterialDesignThemes" version="2.1.0.657" />
+    <PackageReference Include="StructureMap" version="4.5.3" />
+    <PackageReference Include="System.Reactive" version="3.1.1" />
+    <PackageReference Include="System.Reactive.Core" version="3.1.1" />
+    <PackageReference Include="System.Reactive.Interfaces" version="3.1.1" />
+    <PackageReference Include="System.Reactive.Linq" version="3.1.1" />
+    <PackageReference Include="System.Reactive.PlatformServices" version="3.1.1" />
+    <PackageReference Include="System.Reactive.Windows.Threading" version="3.1.1" />
+    <PackageReference Include="System.Reflection.Emit.Lightweight" version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TailBlazer\TailBlazer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="tailblazer.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Log4Net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

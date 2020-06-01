@@ -10,7 +10,7 @@ using TailBlazer.Views.Layout;
 using TailBlazer.Views.WindowManagement;
 using TailBlazer.Domain.Infrastructure;
 
-namespace TailBlazer
+namespace TailBlazer.Application
 {
     public class BootStrap
     {
@@ -22,7 +22,7 @@ namespace TailBlazer
         {
             FreeConsole();
 
-            var app = new App { ShutdownMode = ShutdownMode.OnLastWindowClose };
+            var app = new global::TailBlazer.App { ShutdownMode = ShutdownMode.OnLastWindowClose };
             app.InitializeComponent();
 
             var tempWindowToGetDispatcher = new Window();
