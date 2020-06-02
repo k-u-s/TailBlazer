@@ -22,7 +22,7 @@ namespace TailBlazer.Application
         {
             FreeConsole();
 
-            var app = new global::TailBlazer.App { ShutdownMode = ShutdownMode.OnLastWindowClose };
+            var app = new global::TailBlazer.Application.App { ShutdownMode = ShutdownMode.OnLastWindowClose };
             app.InitializeComponent();
 
             var tempWindowToGetDispatcher = new Window();

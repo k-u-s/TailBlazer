@@ -1,11 +1,11 @@
 ﻿<Application
-    x:Class="TailBlazer.App"
+    x:Class="TailBlazer.Application.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:TailBlazer.Controls"
-    xmlns:fileDrop="clr-namespace:TailBlazer.Views.FileDrop"
-    xmlns:searching="clr-namespace:TailBlazer.Views.Searching"
-    xmlns:tail="clr-namespace:TailBlazer.Views.Tail">
+    xmlns:controls="clr-namespace:TailBlazer.Controls;assembly=TailBlazer"
+    xmlns:fileDrop="clr-namespace:TailBlazer.Views.FileDrop;assembly=TailBlazer"
+    xmlns:searching="clr-namespace:TailBlazer.Views.Searching;assembly=TailBlazer"
+    xmlns:tail="clr-namespace:TailBlazer.Views.Tail;assembly=TailBlazer">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
