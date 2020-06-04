@@ -6,7 +6,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.combobox.xaml" />
         <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.T.xaml" />-->
-        <ResourceDictionary Source="pack://application:,,,/TailBlazer;component/Themes/TextBoxes.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/TextBoxes.xaml" />
 
 
     </ResourceDictionary.MergedDictionaries>
@@ -149,7 +149,7 @@
                                UpVerticalOffset="15"
                                UpContentTemplate="{StaticResource PopupContentUpTemplate}"
                                DownContentTemplate="{StaticResource PopupContentDownTemplate}"
-                               DefaultContentTemplate="{StaticResource PopupContentDefaultTemplate}">
+                               ClassicContentTemplate="{StaticResource PopupContentDefaultTemplate}">
                 <ContentControl>
                     <ScrollViewer Background="{DynamicResource MaterialDesignPaper}"
                                   MaxHeight="{TemplateBinding MaxDropDownHeight}">
