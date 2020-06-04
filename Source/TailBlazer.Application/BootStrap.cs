@@ -25,24 +25,10 @@ namespace TailBlazer.Application
             var app = new global::TailBlazer.Application.App { ShutdownMode = ShutdownMode.OnLastWindowClose };
             app.InitializeComponent();
 
-            var tempWindowToGetDispatcher = new Window();
-
-            var container = new Container(x => x.AddRegistry<AppRegistry>());
-            container.Configure(x => x.For<Dispatcher>().Add(tempWindowToGetDispatcher.Dispatcher));
-            container.GetInstance<StartupController>();
-
-            var factory = container.GetInstance<WindowFactory>();
-            var window = factory.Create(args);
-            tempWindowToGetDispatcher.Close();
-
-            var layoutServce = container.GetInstance<ILayoutService>();
-            var scheduler = container.GetInstance<ISchedulerProvider>();
-            scheduler.MainThread.Schedule(window.Show);
-
-            var appStatePublisher = container.GetInstance<IApplicationStatePublisher>();
-            app.Exit += (sender, e) => appStatePublisher.Publish(ApplicationState.ShuttingDown);
-
-            app.Run();
+            app.ShutdownMode = ShutdownMode.OnExplicitShutdown;
+            var window = new MainWindow(args);
+            app.ShutdownMode = ShutdownMode.OnLastWindowClose;
+            app.Run(window);
         }
     }
 }

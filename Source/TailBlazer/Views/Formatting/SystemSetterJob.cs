@@ -9,6 +9,7 @@ using TailBlazer.Domain.Formatting;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Domain.Ratings;
 using TailBlazer.Domain.Settings;
+using TailBlazer.Infrastucture;
 
 namespace TailBlazer.Views.Formatting
 {
