@@ -81,13 +81,13 @@
                                         <RotateTransform x:Name="RotateTransform"
                                                                  CenterX="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource RotateTransformCentreConverter}, Mode=OneWay}" 
                                                                  CenterY="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource RotateTransformCentreConverter}, Mode=OneWay}">
-                                            <RotateTransform.Angle>
+                                            <!--<RotateTransform.Angle>
                                                 <MultiBinding Converter="{StaticResource RotateTransformConverter}">
                                                     <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Value" />
                                                     <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Minimum" />
                                                     <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Maximum" />
                                                 </MultiBinding>
-                                            </RotateTransform.Angle>
+                                            </RotateTransform.Angle>-->
                                         </RotateTransform>
                                     </TransformGroup>
                                 </Path.RenderTransform>

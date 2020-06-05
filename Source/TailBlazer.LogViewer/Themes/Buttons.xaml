@@ -35,7 +35,7 @@
         </Style.Triggers>
     </Style>
  
-    <Style TargetType="{x:Type Button}" x:Key="CloseButtonStyle" BasedOn="{StaticResource MaterialDesignMenuCommandButtonStyle}">
+    <Style TargetType="{x:Type Button}" x:Key="CloseButtonStyle" BasedOn="{StaticResource  MaterialDesignToolButton}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
