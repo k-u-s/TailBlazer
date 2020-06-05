@@ -19,11 +19,15 @@
              mc:Ignorable="d" 
               FocusManager.FocusedElement="{Binding ElementName= SearchTextBox}"
              d:DataContext="{d:DesignInstance tail:TailViewModel, IsDesignTimeCreatable=False}"
-             d:DesignHeight="400" d:DesignWidth="400">
+             d:DesignHeight="400" d:DesignWidth="400"
+             >
 
     <Control.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.listbox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.textbox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.button.xaml" />
@@ -47,10 +51,13 @@
             <system:Int32 x:Key="Zero">0</system:Int32>
             <system:Int32 x:Key="One">1</system:Int32>
 
+            <DataTemplate DataType="{x:Type tail:TailViewModel}">
+                <tail:TailView />
+            </DataTemplate>
         </ResourceDictionary>
     </Control.Resources>
 
-    <UserControl.CommandBindings>
+    <UserControl.CommandBindings >
         <CommandBinding Command="ApplicationCommands.Find"
                         Executed="ApplicationCommandFind_Executed"/>
     </UserControl.CommandBindings>
@@ -61,6 +68,8 @@
                     DialogContent="{Binding DialogContent}"
                     TextElement.Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}, Path=(TextElement.Foreground)}"
                     Background="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}, Path=Background}"
+             
+                    DataContext="{Binding Path=ViewModel, RelativeSource={RelativeSource AncestorType={x:Type tail:TailView}}}"
                     >
         <Grid Margin="4" >
             <ProgressBar

@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MahApps.Metro" Version="2.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TailBlazer.Domain\TailBlazer.Domain.csproj" />
     <ProjectReference Include="..\TailBlazer.LogViewer\TailBlazer.LogViewer.csproj" />
   </ItemGroup>

@@ -24,19 +24,8 @@ namespace TailBlazer.Example
     /// </summary>
     public partial class MainWindow
     {
-        public TailViewModel TailViewModel { get; set; }
-
         public MainWindow()
         {
-            var filePath = "./Sample.txt";
-            var fileInfo = new FileInfo(filePath);
-
-            var factory = ServiceLocator.Default.Get<TailViewModelFactory>();
-            var vieModel = factory.Create(fileInfo);
-
-            TailViewModel = (TailViewModel)vieModel.Content;
-
-            DataContext = this;
             InitializeComponent();
         }
     }

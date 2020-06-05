@@ -1,29 +1,12 @@
 ﻿<Application x:Class="TailBlazer.Example.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:TailBlazer.Example"
-             xmlns:controls="clr-namespace:TailBlazer.Controls;assembly=TailBlazer.LogViewer"
-             xmlns:searching="clr-namespace:TailBlazer.Views.Searching;assembly=TailBlazer.LogViewer"
-             xmlns:tail="clr-namespace:TailBlazer.Views.Tail;assembly=TailBlazer.LogViewer"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Colours.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
             </ResourceDictionary.MergedDictionaries>
-<!--
-            <DataTemplate DataType="{x:Type searching:SearchOptionsViewModel}">
-                <searching:SearchOptionsView />
-            </DataTemplate>
 
-            <DataTemplate DataType="{x:Type searching:IconSelector}">
-                <searching:IconSelectorView />
-            </DataTemplate>
--->
-            <DataTemplate DataType="{x:Type tail:TailViewModel}">
-                <tail:TailView />
-            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
