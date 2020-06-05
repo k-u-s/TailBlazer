@@ -51,6 +51,14 @@
             <system:Int32 x:Key="Zero">0</system:Int32>
             <system:Int32 x:Key="One">1</system:Int32>
 
+            <DataTemplate DataType="{x:Type searching:SearchOptionsViewModel}">
+                <searching:SearchOptionsView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type searching:IconSelector}">
+                <searching:IconSelectorView />
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type tail:TailViewModel}">
                 <tail:TailView />
             </DataTemplate>

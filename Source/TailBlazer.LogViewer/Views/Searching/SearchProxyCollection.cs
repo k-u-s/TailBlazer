@@ -4,13 +4,14 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using Dragablz;
 using DynamicData;
 using DynamicData.Binding;
+using GongSolutions.Wpf.DragDrop;
 using TailBlazer.Domain.FileHandling.Search;
 using TailBlazer.Domain.FileHandling.TextAssociations;
 using TailBlazer.Domain.Formatting;
 using TailBlazer.Domain.Infrastructure;
+using TailBlazer.LogViewer.Views.Searching;
 using TailBlazer.Views.Formatting;
 
 namespace TailBlazer.Views.Searching
@@ -23,7 +24,7 @@ namespace TailBlazer.Views.Searching
         public ReadOnlyObservableCollection<SearchOptionsProxy> Included { get; }
         public ReadOnlyObservableCollection<SearchOptionsProxy> Excluded { get; }
 
-        public VerticalPositionMonitor PositionMonitor { get; } = new VerticalPositionMonitor();
+        public SearchProxyCollectionDropHandler PositionHandler { get; } = new SearchProxyCollectionDropHandler();
 
         public SearchProxyCollection(ISearchMetadataCollection metadataCollection,
             Guid id,
@@ -35,7 +36,6 @@ namespace TailBlazer.Views.Searching
             IThemeProvider themeProvider)
         {
             var proxyItems = metadataCollection.Metadata.Connect()
-                .WhereReasonsAre(ChangeReason.Add, ChangeReason.Remove) //ignore updates because we update from here
                 .Transform(meta =>
                 {
                     return new SearchOptionsProxy(meta,
@@ -81,8 +81,7 @@ namespace TailBlazer.Views.Searching
                 .Connect(proxy => !proxy.IsExclusion)
                 .Sort(SortExpressionComparer<SearchOptionsProxy>.Ascending(proxy => proxy.Position))
                 .ObserveOn(schedulerProvider.MainThread)
-                //force reset for each new or removed item dues to a bug in the underlying dragablz control which inserts in an incorrect position
-                .Bind(collection, new ObservableCollectionAdaptor<SearchOptionsProxy, string>(0))
+                .Bind(collection)
                 .DisposeMany()
                 .Subscribe();
 
@@ -90,7 +89,6 @@ namespace TailBlazer.Views.Searching
                 .Connect(proxy => proxy.IsExclusion)
                 .Sort(SortExpressionComparer<SearchOptionsProxy>.Ascending(proxy => proxy.Text))
                 .ObserveOn(schedulerProvider.MainThread)
-                //force reset for each new or removed item dues to a bug in the underlying dragablz control which inserts in an incorrect position
                 .Bind(out var excluded)
                 .DisposeMany()
                 .Subscribe();
@@ -105,8 +103,8 @@ namespace TailBlazer.Views.Searching
         private IObservable<IEnumerable<SearchMetadata>> MonitorPositionalChanges()
         {
             return Observable.FromEventPattern<OrderChangedEventArgs>(
-                h => PositionMonitor.OrderChanged += h,
-                h => PositionMonitor.OrderChanged -= h)
+                h => PositionHandler.OrderChanged += h,
+                h => PositionHandler.OrderChanged -= h)
                 .Throttle(TimeSpan.FromMilliseconds(125))
                 .Select(evt => evt.EventArgs)
                 .Where(args => args.PreviousOrder != null && !args.PreviousOrder.SequenceEqual(args.NewOrder))

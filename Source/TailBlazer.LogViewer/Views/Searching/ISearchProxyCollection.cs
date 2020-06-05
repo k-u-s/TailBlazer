@@ -1,7 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
-using Dragablz;
 using TailBlazer.Domain.Infrastructure;
+using TailBlazer.LogViewer.Views.Searching;
 
 namespace TailBlazer.Views.Searching
 {
@@ -10,6 +10,6 @@ namespace TailBlazer.Views.Searching
         IProperty<int> Count { get; }
         ReadOnlyObservableCollection<SearchOptionsProxy> Included { get; }
         ReadOnlyObservableCollection<SearchOptionsProxy> Excluded { get; }
-        VerticalPositionMonitor PositionMonitor { get; }
+        SearchProxyCollectionDropHandler PositionHandler { get; }
     }
 }

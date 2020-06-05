@@ -1,7 +1,6 @@
 ﻿<UserControl
     x:Class="TailBlazer.Views.Searching.SearchOptionsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,22 +9,26 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib"
     xmlns:infrastucture="clr-namespace:TailBlazer.Infrastucture"
     xmlns:searching="clr-namespace:TailBlazer.Views.Searching"
+    xmlns:dd="urn:gong-wpf-dragdrop"
     d:DataContext="{d:DesignInstance searching:SearchOptionsViewModel}"
     mc:Ignorable="d">
 
     <Control.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.textbox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.button.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.checkbox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.popupbox.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer;component/Themes/Buttons.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer;component/Themes/ToggleButtons.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer;component/Themes/TextBoxes.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer;component/Themes/Colours.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer;component/Themes/ListBox.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer;component/Themes/Dragable.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Buttons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/ToggleButtons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/TextBoxes.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/ListBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Dragable.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <searching:IsGlobalToIconConverter x:Key="IsGlobalToIconConverter" />
@@ -275,20 +278,19 @@
                         Text="The following will be used for filters and highlighting:"
                         Visibility="{Binding Included.Count, Converter={StaticResource NotEqualsToVisibilityConverter}, ConverterParameter={StaticResource Zero}}" />
 
-                    <dragablz:DragablzItemsControl
-                        Grid.Row="3"
-                        Margin="0,6,0,12"
-                        HorizontalContentAlignment="Stretch"
-                        ItemContainerStyle="{StaticResource DragableItem}"
-                        ItemTemplate="{StaticResource IncludedTemplate}"
-                        ItemsSource="{Binding Included}"
-                        PositionMonitor="{Binding PositionMonitor}"
-                        Visibility="{Binding Included.Count, Converter={StaticResource NotEqualsToVisibilityConverter}, ConverterParameter={StaticResource Zero}}">
-
-                        <dragablz:DragablzItemsControl.ItemsOrganiser>
-                            <dragablz:VerticalOrganiser />
-                        </dragablz:DragablzItemsControl.ItemsOrganiser>
-                    </dragablz:DragablzItemsControl>
+                    <ListView Grid.Row="3"
+                              Margin="0,6,0,12"
+                              HorizontalContentAlignment="Stretch"
+                              ItemsSource="{Binding Included}"
+                              ItemContainerStyle="{StaticResource DragableItem}"
+                              ItemTemplate="{StaticResource IncludedTemplate}"
+                              Visibility="{Binding Included.Count,
+                                             Converter={StaticResource NotEqualsToVisibilityConverter},
+                                             ConverterParameter={StaticResource Zero}}"
+                              
+                              dd:DragDrop.IsDragSource="True"
+                              dd:DragDrop.IsDropTarget="True"
+                              dd:DragDrop.DropHandler="{Binding PositionHandler}"/>
                 </Grid>
             </DataTemplate>
 
