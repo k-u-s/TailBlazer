@@ -3,6 +3,7 @@ using System.IO;
 using System.Reactive.Concurrency;
 using TailBlazer.Domain.Annotations;
 using TailBlazer.Domain.FileHandling;
+using TailBlazer.Domain.FileHandling.Search;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Domain.Settings;
 using TailBlazer.LogViewer.Infrastucture;
@@ -50,12 +51,12 @@ namespace TailBlazer.LogViewer.Views.Tail
                 new Argument<IScheduler>(_schedulerProvider.Background)
             });
 
-           // var combined = _objectProvider.Get<ICombinedSearchMetadataCollection>();
+           var combined = _objectProvider.Get<ICombinedSearchMetadataCollection>();
 
             var args = new IArgument[]
             {
                 new Argument<IFileWatcher>(fileWatcher),
-               // new Argument<ICombinedSearchMetadataCollection>(combined)
+                new Argument<ICombinedSearchMetadataCollection>(combined) 
             };
 
             return _objectProvider.Get<TailViewModel>(args);

@@ -25,7 +25,7 @@ namespace TailBlazer.LogViewer.Views.Tail
         public TailViewModel ViewModel
         {
             get { return (TailViewModel)GetValue(ViewModelProperty); }
-            internal set { SetValue(ViewModelProperty, value); }
+            set { SetValue(ViewModelProperty, value); }
         }
 
         public static readonly DependencyProperty ViewModelProperty
@@ -49,11 +49,15 @@ namespace TailBlazer.LogViewer.Views.Tail
                 return;
 
             var fileInfo = new FileInfo(instance.FilePath);
+            instance.SetModel(fileInfo);
+        }
 
+        internal void SetModel(FileInfo fileInfo)
+        {
             var factory = ServiceLocator.Default.Get<TailViewModelFactory>();
             var vieModel = factory.Create(fileInfo);
 
-            instance.ViewModel = (TailViewModel)vieModel.Content;
+            DataContext = (TailViewModel)vieModel.Content;
         }
 
         private void FocusSearchTextBox()

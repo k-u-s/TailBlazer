@@ -77,7 +77,6 @@
                     TextElement.Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}, Path=(TextElement.Foreground)}"
                     Background="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}, Path=Background}"
              
-                    DataContext="{Binding Path=ViewModel, RelativeSource={RelativeSource AncestorType={x:Type tail:TailView}}}"
                     >
         <Grid Margin="4" >
             <ProgressBar
