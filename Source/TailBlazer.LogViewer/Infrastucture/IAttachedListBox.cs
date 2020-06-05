@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using DynamicData;
-using TailBlazer.Views.Tail;
+using TailBlazer.LogViewer.Views.Tail;
 
-namespace TailBlazer.Infrastucture
+namespace TailBlazer.LogViewer.Infrastucture
 {
     public interface IAttachedListBox
     {

@@ -1,9 +1,8 @@
 using System;
 using System.Collections.ObjectModel;
 using TailBlazer.Domain.Infrastructure;
-using TailBlazer.LogViewer.Views.Searching;
 
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public interface ISearchProxyCollection: IDisposable
     {

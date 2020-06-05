@@ -6,15 +6,13 @@ using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using DynamicData;
 using DynamicData.Binding;
-using GongSolutions.Wpf.DragDrop;
 using TailBlazer.Domain.FileHandling.Search;
 using TailBlazer.Domain.FileHandling.TextAssociations;
 using TailBlazer.Domain.Formatting;
 using TailBlazer.Domain.Infrastructure;
-using TailBlazer.LogViewer.Views.Searching;
-using TailBlazer.Views.Formatting;
+using TailBlazer.LogViewer.Views.Formatting;
 
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public class SearchProxyCollection : ISearchProxyCollection
     {

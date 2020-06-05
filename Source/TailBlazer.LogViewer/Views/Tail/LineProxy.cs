@@ -12,9 +12,9 @@ using TailBlazer.Domain.Annotations;
 using TailBlazer.Domain.FileHandling;
 using TailBlazer.Domain.Formatting;
 using TailBlazer.Domain.Infrastructure;
-using TailBlazer.Infrastucture.Virtualisation;
+using TailBlazer.LogViewer.Infrastucture.Virtualisation;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public class LineProxy: AbstractNotifyPropertyChanged,IComparable<LineProxy>, IComparable, IEquatable<LineProxy>, IDisposable
     {

@@ -8,7 +8,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using TimeSpan = System.TimeSpan;
 
-namespace TailBlazer.Infrastucture.Virtualisation
+namespace TailBlazer.LogViewer.Infrastucture.Virtualisation
 {
     
     /// <summary>

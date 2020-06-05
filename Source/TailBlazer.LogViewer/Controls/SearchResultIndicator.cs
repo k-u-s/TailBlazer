@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using TailBlazer.Domain.Annotations;
 
-namespace TailBlazer.Controls
+namespace TailBlazer.LogViewer.Controls
 {
 
     public enum SearchResultIndicatorStatus

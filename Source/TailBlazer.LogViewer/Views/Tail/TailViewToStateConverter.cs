@@ -2,9 +2,9 @@
 using System.Xml.Linq;
 using TailBlazer.Domain.FileHandling.Search;
 using TailBlazer.Domain.Settings;
-using TailBlazer.Views.Searching;
+using TailBlazer.LogViewer.Views.Searching;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public class TailViewToStateConverter : IConverter<TailViewState>
     {

@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace TailBlazer.Infrastucture
+namespace TailBlazer.LogViewer.Infrastucture
 {
     public interface IDependencyObjectReceiver
     {

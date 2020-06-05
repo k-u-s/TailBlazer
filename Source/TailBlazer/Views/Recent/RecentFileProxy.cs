@@ -3,6 +3,7 @@ using System.Windows.Input;
 using DynamicData.Binding;
 using TailBlazer.Domain.FileHandling.Recent;
 using TailBlazer.Infrastucture;
+using TailBlazer.LogViewer.Infrastucture;
 
 namespace TailBlazer.Views.Recent
 {

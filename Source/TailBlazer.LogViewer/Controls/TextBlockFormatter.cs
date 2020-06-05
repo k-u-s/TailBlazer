@@ -6,7 +6,7 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using TailBlazer.Domain.Formatting;
 
-namespace TailBlazer.Controls
+namespace TailBlazer.LogViewer.Controls
 {
 
 

@@ -1,9 +1,9 @@
 using System.Linq;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Domain.Settings;
-using TailBlazer.Views.Searching;
+using TailBlazer.LogViewer.Views.Searching;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public class TailViewStateRestorer : ITailViewStateRestorer
     {

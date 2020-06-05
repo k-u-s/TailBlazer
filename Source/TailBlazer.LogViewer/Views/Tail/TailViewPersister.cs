@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using TailBlazer.Domain.Settings;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public class TailViewPersister: IPersistentView
     {

@@ -5,9 +5,9 @@ using TailBlazer.Domain.Annotations;
 using TailBlazer.Domain.FileHandling;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Domain.Settings;
-using TailBlazer.Infrastucture;
+using TailBlazer.LogViewer.Infrastucture;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public class TailViewModelFactory: IViewModelFactory
     {

@@ -11,9 +11,9 @@ using System.Windows.Input;
 using DynamicData;
 using DynamicData.Binding;
 using TailBlazer.Domain.Infrastructure;
-using TailBlazer.Views.Tail;
+using TailBlazer.LogViewer.Views.Tail;
 
-namespace TailBlazer.Infrastucture
+namespace TailBlazer.LogViewer.Infrastucture
 {
     public enum MouseKeyState
     {

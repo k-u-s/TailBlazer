@@ -5,7 +5,7 @@ using DynamicData.Binding;
 using TailBlazer.Domain.FileHandling.Search;
 using TailBlazer.Domain.Infrastructure;
 
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     public class SearchOptionsViewModel : AbstractNotifyPropertyChanged, IDisposable

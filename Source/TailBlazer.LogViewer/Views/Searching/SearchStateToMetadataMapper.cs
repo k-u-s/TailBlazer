@@ -2,7 +2,7 @@ using DynamicData.Kernel;
 using TailBlazer.Domain.FileHandling.Search;
 using TailBlazer.Domain.Formatting;
 
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public class SearchStateToMetadataMapper : ISearchStateToMetadataMapper
     {

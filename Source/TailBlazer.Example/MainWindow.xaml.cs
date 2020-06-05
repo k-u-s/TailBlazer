@@ -15,7 +15,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.LogViewer;
-using TailBlazer.Views.Tail;
 
 namespace TailBlazer.Example
 {

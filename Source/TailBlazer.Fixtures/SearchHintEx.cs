@@ -1,7 +1,7 @@
 using FluentAssertions;
 using TailBlazer.Domain.FileHandling.Recent;
+using TailBlazer.LogViewer.Views.Searching;
 using Xunit;
-using TailBlazer.Views.Searching;
 
 namespace TailBlazer.Fixtures
 {

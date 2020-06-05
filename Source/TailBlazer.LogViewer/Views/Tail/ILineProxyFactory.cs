@@ -1,6 +1,6 @@
 using TailBlazer.Domain.FileHandling;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public interface ILineProxyFactory
     {

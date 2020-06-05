@@ -4,7 +4,7 @@ using System.Linq;
 using MaterialDesignThemes.Wpf;
 using TailBlazer.Domain.FileHandling.Search;
 
-namespace TailBlazer.Views.Formatting
+namespace TailBlazer.LogViewer.Views.Formatting
 {
     public sealed class DefaultIconSelector: IDefaultIconSelector
     {

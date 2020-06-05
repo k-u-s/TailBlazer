@@ -3,7 +3,7 @@ using TailBlazer.Domain.Annotations;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Domain.StateHandling;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public class TailViewStateControllerFactory : ITailViewStateControllerFactory
     {

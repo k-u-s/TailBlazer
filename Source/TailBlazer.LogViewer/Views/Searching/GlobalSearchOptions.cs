@@ -6,7 +6,7 @@ using DynamicData;
 using TailBlazer.Domain.FileHandling.Search;
 using TailBlazer.Domain.Settings;
 
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public class GlobalSearchOptions : IGlobalSearchOptions, IDisposable
     {

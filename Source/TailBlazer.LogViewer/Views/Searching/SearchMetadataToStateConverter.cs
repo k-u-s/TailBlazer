@@ -1,13 +1,11 @@
-
 using System.Collections;
 using System.Linq;
 using System.Xml.Linq;
 using DynamicData.Kernel;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Domain.Settings;
-using TailBlazer.Views.Searching;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public class SearchMetadataToStateConverter : IConverter<SearchState[]>
     {

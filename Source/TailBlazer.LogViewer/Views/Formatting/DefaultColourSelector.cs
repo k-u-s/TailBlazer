@@ -6,7 +6,7 @@ using DynamicData.Kernel;
 using TailBlazer.Domain.FileHandling.Search;
 using TailBlazer.Domain.Formatting;
 
-namespace TailBlazer.Views.Formatting
+namespace TailBlazer.LogViewer.Views.Formatting
 {
     public sealed class DefaultColourSelector : IDefaultColourSelector
     {

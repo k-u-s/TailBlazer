@@ -1,4 +1,4 @@
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public static class TailViewModelConstants
     {

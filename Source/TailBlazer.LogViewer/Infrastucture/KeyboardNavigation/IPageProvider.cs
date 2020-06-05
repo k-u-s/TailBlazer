@@ -1,4 +1,4 @@
-﻿namespace TailBlazer.Infrastucture.KeyboardNavigation
+﻿namespace TailBlazer.LogViewer.Infrastucture.KeyboardNavigation
 {
     public interface IPageProvider
     {

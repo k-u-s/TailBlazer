@@ -1,6 +1,6 @@
 using System;
 
-namespace TailBlazer.Views.Recent
+namespace TailBlazer.LogViewer.Views.Recent
 {
     public class RecentSearch : IEquatable<RecentSearch>
     {

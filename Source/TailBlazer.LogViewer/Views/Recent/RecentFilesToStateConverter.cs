@@ -4,7 +4,7 @@ using System.Linq;
 using System.Xml.Linq;
 using TailBlazer.Domain.Settings;
 
-namespace TailBlazer.Views.Recent
+namespace TailBlazer.LogViewer.Views.Recent
 {
     public class RecentSearchToStateConverter: IConverter<RecentSearch[]>
     {

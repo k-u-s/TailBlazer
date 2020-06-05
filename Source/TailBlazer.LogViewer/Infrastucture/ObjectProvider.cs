@@ -5,11 +5,10 @@ using System.Collections.Generic;
 using StructureMap;
 using StructureMap.Pipeline;
 using TailBlazer.Domain.Infrastructure;
-using Argument = TailBlazer.Domain.Infrastructure.Argument;
 
 #endregion
 
-namespace TailBlazer.Infrastucture
+namespace TailBlazer.LogViewer.Infrastucture
 {
     public class ObjectProvider : IObjectProvider, IObjectRegister
     {

@@ -2,7 +2,7 @@ using System;
 using System.Reactive.Linq;
 using TailBlazer.Domain.FileHandling;
 
-namespace TailBlazer.Infrastucture.KeyboardNavigation
+namespace TailBlazer.LogViewer.Infrastucture.KeyboardNavigation
 {
     public interface IKeyboardNavigationHandler : IDisposable
     {

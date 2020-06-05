@@ -4,9 +4,9 @@ using TailBlazer.Domain.FileHandling.Search;
 using TailBlazer.Domain.FileHandling.TextAssociations;
 using TailBlazer.Domain.Formatting;
 using TailBlazer.Domain.Infrastructure;
-using TailBlazer.Views.Formatting;
+using TailBlazer.LogViewer.Views.Formatting;
 
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public class SearchProxyCollectionFactory : ISearchProxyCollectionFactory
     {

@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:controls="clr-namespace:TailBlazer.Controls"
              xmlns:recent="clr-namespace:TailBlazer.Views.Recent"
-              TextOptions.TextFormattingMode="Ideal" 
+             xmlns:controls="clr-namespace:TailBlazer.LogViewer.Controls;assembly=TailBlazer.LogViewer"
+             TextOptions.TextFormattingMode="Ideal" 
               TextOptions.TextRenderingMode="Auto" 
              mc:Ignorable="d" 
                d:DataContext="{d:DesignInstance recent:RecentFilesViewModel, IsDesignTimeCreatable=False}"
@@ -16,7 +16,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.listbox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.textbox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.button.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer;component/Themes/Buttons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Buttons.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>

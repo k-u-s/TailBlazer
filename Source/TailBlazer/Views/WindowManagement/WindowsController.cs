@@ -2,6 +2,7 @@ using System;
 using DynamicData;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Infrastucture;
+using TailBlazer.LogViewer.Infrastucture;
 
 namespace TailBlazer.Views.WindowManagement
 {

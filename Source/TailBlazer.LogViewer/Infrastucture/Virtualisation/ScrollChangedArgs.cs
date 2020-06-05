@@ -1,4 +1,4 @@
-﻿namespace TailBlazer.Infrastucture.Virtualisation
+﻿namespace TailBlazer.LogViewer.Infrastucture.Virtualisation
 
 {
     public class ScrollChangedArgs

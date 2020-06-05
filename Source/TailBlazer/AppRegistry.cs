@@ -7,9 +7,11 @@ using TailBlazer.Domain.Formatting;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Domain.Settings;
 using TailBlazer.Infrastucture.AppState;
-using TailBlazer.Infrastucture.KeyboardNavigation;
+using TailBlazer.LogViewer;
+using TailBlazer.LogViewer.Infrastucture;
+using TailBlazer.LogViewer.Infrastucture.KeyboardNavigation;
+using TailBlazer.LogViewer.Views.Tail;
 using TailBlazer.Views.Options;
-using TailBlazer.Views.Tail;
 using ILogger = TailBlazer.Domain.Infrastructure.ILogger;
 
 namespace TailBlazer.Infrastucture
@@ -34,24 +36,8 @@ namespace TailBlazer.Infrastucture
             }
             For<ILogger>().Use<Log4NetLogger>().Ctor<Type>("type").Is(x => x.ParentType).AlwaysUnique();
 
-            For<ISelectionMonitor>().Use<SelectionMonitor>();
-            For<ISearchInfoCollection>().Use<SearchInfoCollection>();
-            For<ISearchMetadataCollection>().Use<SearchMetadataCollection>().Transient();
-            For<ICombinedSearchMetadataCollection>().Use<CombinedSearchMetadataCollection>().Transient();
-             
-
-            For<ITextFormatter>().Use<TextFormatter>().Transient();
-            For<ILineMatches>().Use<LineMatches>();
-            For<ISettingsStore>().Use<FileSettingsStore>().Singleton();
-            For<IFileWatcher>().Use<FileWatcher>();
-
-
             For<GeneralOptionsViewModel>().Singleton();
             For<UhandledExceptionHandler>().Singleton();
-            For<ObjectProvider>().Singleton();
-            Forward<ObjectProvider, IObjectProvider>();
-            Forward<ObjectProvider, IObjectRegister>();
-
 
             For<ViewFactoryService>().Singleton();
             Forward<ViewFactoryService, IViewFactoryRegister>();

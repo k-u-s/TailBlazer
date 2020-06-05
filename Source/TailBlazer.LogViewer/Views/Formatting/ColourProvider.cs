@@ -7,7 +7,7 @@ using MaterialDesignColors;
 using TailBlazer.Domain.Formatting;
 using Hue = TailBlazer.Domain.Formatting.Hue;
 
-namespace TailBlazer.Views.Formatting
+namespace TailBlazer.LogViewer.Views.Formatting
 {
     public class ColourProvider : IColourProvider
     {
@@ -80,7 +80,7 @@ namespace TailBlazer.Views.Formatting
 
         public Hue GetAccent(Theme theme)
         {
-            var colour = theme.GetAccentColor();
+            var colour = theme.GetAccentColorText();
             var swatch = Swatches.Lookup(colour);
 
             return swatch.Convert(s=> new Hue(s.Name, s.AccentExemplarHue.Name, s.AccentExemplarHue.Foreground, s.AccentExemplarHue.Color))

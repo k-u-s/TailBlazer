@@ -1,6 +1,6 @@
 using System;
 
-namespace TailBlazer.Views.DialogServices
+namespace TailBlazer.LogViewer.Views.DialogServices
 {
     public interface IDialogCoordinator
     {

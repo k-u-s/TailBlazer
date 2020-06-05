@@ -1,6 +1,6 @@
 using TailBlazer.Domain.Settings;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public interface ITailViewStateRestorer
     {

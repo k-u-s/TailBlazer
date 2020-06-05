@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Reflection;
 using TailBlazer.Domain.FileHandling.Recent;
 using TailBlazer.Domain.FileHandling.TextAssociations;
@@ -7,10 +6,10 @@ using TailBlazer.Domain.Formatting;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Domain.Settings;
 using TailBlazer.Domain.StateHandling;
-using TailBlazer.Views.Recent;
-using TailBlazer.Views.Tail;
+using TailBlazer.LogViewer.Views.Recent;
+using TailBlazer.LogViewer.Views.Searching;
 
-namespace TailBlazer.Infrastucture
+namespace TailBlazer.LogViewer.Infrastucture
 {
     public class StartupController
     {

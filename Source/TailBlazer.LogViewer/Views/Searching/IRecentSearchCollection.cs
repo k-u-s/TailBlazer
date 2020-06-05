@@ -1,7 +1,7 @@
 ﻿using DynamicData;
-using TailBlazer.Views.Recent;
+using TailBlazer.LogViewer.Views.Recent;
 
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public interface IRecentSearchCollection
     {

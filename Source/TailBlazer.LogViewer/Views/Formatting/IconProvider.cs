@@ -5,7 +5,7 @@ using DynamicData;
 using MaterialDesignThemes.Wpf;
 using TailBlazer.Domain.FileHandling.Search;
 
-namespace TailBlazer.Views.Formatting
+namespace TailBlazer.LogViewer.Views.Formatting
 {
     public class IconProvider : IIconProvider, IDisposable
     {

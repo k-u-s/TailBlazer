@@ -1,7 +1,7 @@
 ﻿using TailBlazer.Domain.Settings;
-using TailBlazer.Infrastucture;
+using TailBlazer.LogViewer.Infrastucture;
 
-namespace TailBlazer.Views
+namespace TailBlazer.LogViewer.Views
 {
 
     public interface IViewModelFactory

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using TailBlazer.Domain.Annotations;
 
-namespace TailBlazer.Infrastucture
+namespace TailBlazer.LogViewer.Infrastucture
 {
     public interface IClipboardHandler
     {

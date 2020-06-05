@@ -12,9 +12,9 @@ using TailBlazer.Domain.Annotations;
 using TailBlazer.Domain.FileHandling.Search;
 using TailBlazer.Domain.Formatting;
 using TailBlazer.Domain.Infrastructure;
-using TailBlazer.Infrastucture;
+using TailBlazer.LogViewer.Infrastucture;
 
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public class SearchOptionsProxy : AbstractNotifyPropertyChanged, IDisposable, IEquatable<SearchOptionsProxy>
     {

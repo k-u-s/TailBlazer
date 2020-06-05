@@ -1,7 +1,7 @@
 using System;
 using TailBlazer.Domain.Annotations;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public interface ITailViewStateControllerFactory
     {

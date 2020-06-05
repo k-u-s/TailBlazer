@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace TailBlazer.Views.DialogServices
+namespace TailBlazer.LogViewer.Views.DialogServices
 {
     public interface IDialogViewModel : INotifyPropertyChanged
     {

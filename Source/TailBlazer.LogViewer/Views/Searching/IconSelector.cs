@@ -6,9 +6,9 @@ using DynamicData;
 using DynamicData.Binding;
 using TailBlazer.Domain.Annotations;
 using TailBlazer.Domain.Infrastructure;
-using TailBlazer.Views.Formatting;
+using TailBlazer.LogViewer.Views.Formatting;
 
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public enum IconSelectorResult
     {

@@ -1,8 +1,7 @@
-﻿
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace TailBlazer.Controls
+namespace TailBlazer.LogViewer.Controls
 {
 
     public class FilterIcon : Control

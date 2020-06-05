@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using DynamicData.Kernel;
 
-namespace TailBlazer.Infrastucture.KeyboardNavigation
+namespace TailBlazer.LogViewer.Infrastucture.KeyboardNavigation
 {
     public class KeyboardNavigationHandler: IDependencyObjectReceiver, IKeyboardNavigationHandler
     {

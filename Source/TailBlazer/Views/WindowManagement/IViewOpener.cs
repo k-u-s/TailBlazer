@@ -1,4 +1,5 @@
 using TailBlazer.Infrastucture;
+using TailBlazer.LogViewer.Infrastucture;
 
 namespace TailBlazer.Views.WindowManagement
 {

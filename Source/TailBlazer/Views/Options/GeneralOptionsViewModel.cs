@@ -9,6 +9,7 @@ using TailBlazer.Domain.Formatting;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Domain.Settings;
 using TailBlazer.Infrastucture;
+using TailBlazer.LogViewer.Infrastucture;
 
 namespace TailBlazer.Views.Options
 {

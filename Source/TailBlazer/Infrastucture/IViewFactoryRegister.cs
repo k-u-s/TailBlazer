@@ -1,4 +1,5 @@
 ﻿
+using TailBlazer.LogViewer.Views;
 using TailBlazer.Views;
 
 namespace TailBlazer.Infrastucture

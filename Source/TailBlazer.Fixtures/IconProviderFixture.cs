@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using FluentAssertions;
+using TailBlazer.LogViewer.Views.Formatting;
 using TailBlazer.Views.Formatting;
 using Xunit;
 

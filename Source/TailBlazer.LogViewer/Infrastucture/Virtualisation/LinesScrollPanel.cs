@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
-using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
-namespace TailBlazer.Infrastucture.Virtualisation
+namespace TailBlazer.LogViewer.Infrastucture.Virtualisation
 
 
     //TODO: 1) Clamp offset.X. 

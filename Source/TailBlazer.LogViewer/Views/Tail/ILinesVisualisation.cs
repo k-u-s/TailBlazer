@@ -2,10 +2,10 @@ using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using TailBlazer.Domain.Infrastructure;
-using TailBlazer.Infrastucture;
-using TailBlazer.Infrastucture.Virtualisation;
+using TailBlazer.LogViewer.Infrastucture;
+using TailBlazer.LogViewer.Infrastucture.Virtualisation;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public interface ILinesVisualisation : IScrollReceiver, IDisposable
     {

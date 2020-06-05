@@ -5,9 +5,9 @@ using System.Windows.Input;
 using DynamicData.Binding;
 using TailBlazer.Domain.FileHandling;
 using TailBlazer.Domain.FileHandling.Search;
-using TailBlazer.Infrastucture;
+using TailBlazer.LogViewer.Infrastucture;
 
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public class SearchViewModel : AbstractNotifyPropertyChanged, IDisposable
     {

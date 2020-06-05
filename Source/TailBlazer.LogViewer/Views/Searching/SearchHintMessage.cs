@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public class SearchHintMessage: INotifyPropertyChanged
     {

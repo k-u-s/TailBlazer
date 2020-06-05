@@ -4,7 +4,7 @@ using StructureMap;
 using StructureMap.Graph;
 using StructureMap.Graph.Scanning;
 
-namespace TailBlazer.Infrastucture
+namespace TailBlazer.LogViewer.Infrastucture
 {
     public class ViewModelFactoryConventions : IRegistrationConvention
     {

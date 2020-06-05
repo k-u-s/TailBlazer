@@ -1,4 +1,4 @@
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public sealed  class SearchState
     {

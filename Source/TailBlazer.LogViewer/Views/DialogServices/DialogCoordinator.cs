@@ -3,7 +3,7 @@ using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using DynamicData.Binding;
 
-namespace TailBlazer.Views.DialogServices
+namespace TailBlazer.LogViewer.Views.DialogServices
 {
     public class DialogCoordinator : IDialogCoordinator
     {

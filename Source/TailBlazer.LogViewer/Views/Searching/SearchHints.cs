@@ -10,10 +10,10 @@ using DynamicData;
 using DynamicData.Binding;
 using TailBlazer.Domain.FileHandling.Search;
 using TailBlazer.Domain.Infrastructure;
-using TailBlazer.Infrastucture;
-using TailBlazer.Views.Recent;
+using TailBlazer.LogViewer.Infrastucture;
+using TailBlazer.LogViewer.Views.Recent;
 
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public class SearchHints : AbstractNotifyPropertyChanged, IDisposable, IDataErrorInfo
     {

@@ -7,15 +7,14 @@ using System.Reactive.Subjects;
 using System.Windows.Input;
 using DynamicData;
 using DynamicData.Binding;
-using DynamicData.PLinq;
 using TailBlazer.Domain.Annotations;
 using TailBlazer.Domain.FileHandling;
 using TailBlazer.Domain.Formatting;
 using TailBlazer.Domain.Infrastructure;
-using TailBlazer.Infrastucture;
-using TailBlazer.Infrastucture.Virtualisation;
+using TailBlazer.LogViewer.Infrastucture;
+using TailBlazer.LogViewer.Infrastucture.Virtualisation;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public class InlineViewer : AbstractNotifyPropertyChanged, ILinesVisualisation
     {

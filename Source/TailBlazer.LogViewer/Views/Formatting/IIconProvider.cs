@@ -1,7 +1,7 @@
 using DynamicData;
 using TailBlazer.Domain.FileHandling.Search;
 
-namespace TailBlazer.Views.Formatting
+namespace TailBlazer.LogViewer.Views.Formatting
 {
     public interface IIconProvider
     {

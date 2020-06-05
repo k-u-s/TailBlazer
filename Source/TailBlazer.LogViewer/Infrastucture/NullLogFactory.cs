@@ -1,7 +1,7 @@
 ﻿using System;
 using TailBlazer.Domain.Infrastructure;
 
-namespace TailBlazer.Infrastucture
+namespace TailBlazer.LogViewer.Infrastucture
 {
     public class NullLogFactory : ILogFactory
     {

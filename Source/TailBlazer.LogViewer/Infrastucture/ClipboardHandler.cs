@@ -6,7 +6,7 @@ using DynamicData.Kernel;
 using TailBlazer.Domain.Annotations;
 using TailBlazer.Domain.Infrastructure;
 
-namespace TailBlazer.Infrastucture
+namespace TailBlazer.LogViewer.Infrastucture
 {
     public class ClipboardHandler : IClipboardHandler
     {

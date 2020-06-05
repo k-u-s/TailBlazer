@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using TailBlazer.Views.Searching;
+using TailBlazer.LogViewer.Views.Searching;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public sealed class TailViewState
     {

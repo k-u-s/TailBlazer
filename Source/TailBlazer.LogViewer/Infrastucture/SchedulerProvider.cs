@@ -2,7 +2,7 @@
 using System.Windows.Threading;
 using TailBlazer.Domain.Infrastructure;
 
-namespace TailBlazer.Infrastucture
+namespace TailBlazer.LogViewer.Infrastucture
 {
     public class SchedulerProvider : ISchedulerProvider
     {

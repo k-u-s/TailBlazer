@@ -9,6 +9,7 @@ using TailBlazer.Infrastucture.AppState;
 using TailBlazer.Views.Layout;
 using TailBlazer.Views.WindowManagement;
 using TailBlazer.Domain.Infrastructure;
+using TailBlazer.LogViewer;
 
 namespace TailBlazer.Application
 {
@@ -25,16 +26,13 @@ namespace TailBlazer.Application
             var app = new global::TailBlazer.Application.App { ShutdownMode = ShutdownMode.OnLastWindowClose };
             app.InitializeComponent();
 
-            var tempWindowToGetDispatcher = new Window();
 
-            var container = new Container(x => x.AddRegistry<AppRegistry>());
-            container.Configure(x => x.For<Dispatcher>().Add(tempWindowToGetDispatcher.Dispatcher));
+            var container = ServiceLocator.Container;
+            container.Configure(x => x.AddRegistry<AppRegistry>());
             container.GetInstance<StartupController>();
 
             var factory = container.GetInstance<WindowFactory>();
             var window = factory.Create(args);
-            tempWindowToGetDispatcher.Close();
-
             var layoutServce = container.GetInstance<ILayoutService>();
             var scheduler = container.GetInstance<ISchedulerProvider>();
             scheduler.MainThread.Schedule(window.Show);

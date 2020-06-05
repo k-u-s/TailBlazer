@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using DynamicData.Kernel;
 using TailBlazer.Domain.Infrastructure;
+using TailBlazer.LogViewer.Views;
 using TailBlazer.Views;
 
 namespace TailBlazer.Infrastucture

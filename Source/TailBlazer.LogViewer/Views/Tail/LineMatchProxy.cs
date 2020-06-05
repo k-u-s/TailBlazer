@@ -8,7 +8,7 @@ using MaterialDesignThemes.Wpf;
 using TailBlazer.Domain.Formatting;
 using TailBlazer.Domain.Infrastructure;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public sealed class LineMatchProxy : AbstractNotifyPropertyChanged, IDisposable
     {

@@ -2,7 +2,7 @@ using System;
 using System.Text.RegularExpressions;
 using MaterialDesignThemes.Wpf;
 
-namespace TailBlazer.Views.Formatting
+namespace TailBlazer.LogViewer.Views.Formatting
 {
     public class IconDescription : IEquatable<IconDescription>
     {

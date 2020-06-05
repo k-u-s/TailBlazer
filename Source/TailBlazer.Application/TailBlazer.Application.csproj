@@ -15,11 +15,14 @@
     <Copyright>Copyright © 2015</Copyright>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
     <FileVersion>0.0.0.0</FileVersion>
+    <AssemblyName>TailBlazer.Application</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.0.0" />
     <PackageReference Include="StructureMap" Version="4.5.3" />
+    <PackageReference Include="MaterialDesignColors" Version="1.2.6" />
+    <PackageReference Include="MaterialDesignThemes" Version="3.1.3" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Reactive.Concurrency;
@@ -9,6 +10,7 @@ using TailBlazer.Domain.Formatting;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Domain.Ratings;
 using TailBlazer.Domain.Settings;
+using Theme = TailBlazer.Domain.Formatting.Theme;
 
 namespace TailBlazer.Views.Formatting
 {
@@ -26,10 +28,17 @@ namespace TailBlazer.Views.Formatting
                 .Subscribe(theme =>
                 {
                     var dark = theme == Theme.Dark;
+                    var nextThemeBase = dark
+                        ? MaterialDesignThemes.Wpf.Theme.Dark
+                        : MaterialDesignThemes.Wpf.Theme.Light;
                     var paletteHelper = new PaletteHelper();
 
-                    paletteHelper.SetLightDark(dark);
-                    paletteHelper.ReplaceAccentColor(theme.GetAccentColor());
+                    var nextTheme = MaterialDesignThemes.Wpf.Theme.Create(
+                        nextThemeBase, 
+                        System.Windows.Media.Colors.Green,
+                        theme.GetAccentColor());
+
+                    paletteHelper.SetTheme(nextTheme);
                 });
 
             var frameRate = ratingService.Metrics

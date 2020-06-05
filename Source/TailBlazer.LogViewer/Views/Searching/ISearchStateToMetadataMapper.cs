@@ -1,6 +1,6 @@
 using TailBlazer.Domain.FileHandling.Search;
 
-namespace TailBlazer.Views.Searching
+namespace TailBlazer.LogViewer.Views.Searching
 {
     public interface ISearchStateToMetadataMapper
     {

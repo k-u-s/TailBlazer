@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using DynamicData;
 using TailBlazer.Infrastucture;
+using TailBlazer.LogViewer.Infrastucture;
 
 namespace TailBlazer.Views.WindowManagement
 {

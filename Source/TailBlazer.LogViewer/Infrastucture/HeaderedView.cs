@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TailBlazer.Infrastucture
+namespace TailBlazer.LogViewer.Infrastucture
 {
     public class HeaderedView : IEquatable<HeaderedView>
     {

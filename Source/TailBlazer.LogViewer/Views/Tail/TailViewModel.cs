@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using DynamicData;
 using DynamicData.Binding;
-using DynamicData.PLinq;
 using TailBlazer.Domain.Annotations;
 using TailBlazer.Domain.FileHandling;
 using TailBlazer.Domain.FileHandling.Search;
@@ -17,13 +16,13 @@ using TailBlazer.Domain.Formatting;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Domain.Settings;
 using TailBlazer.Domain.StateHandling;
-using TailBlazer.Infrastucture;
-using TailBlazer.Infrastucture.KeyboardNavigation;
-using TailBlazer.Infrastucture.Virtualisation;
-using TailBlazer.Views.DialogServices;
-using TailBlazer.Views.Searching;
+using TailBlazer.LogViewer.Infrastucture;
+using TailBlazer.LogViewer.Infrastucture.KeyboardNavigation;
+using TailBlazer.LogViewer.Infrastucture.Virtualisation;
+using TailBlazer.LogViewer.Views.DialogServices;
+using TailBlazer.LogViewer.Views.Searching;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     public class TailViewModel: AbstractNotifyPropertyChanged, ILinesVisualisation, IPersistentView, IDialogViewModel, IPageProvider, ISelectedAware
     {

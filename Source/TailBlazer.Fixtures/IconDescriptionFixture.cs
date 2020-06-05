@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using MaterialDesignThemes.Wpf;
+using TailBlazer.LogViewer.Views.Formatting;
 using TailBlazer.Views.Formatting;
 using Xunit;
 

@@ -18,10 +18,11 @@ using Microsoft.Win32;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Infrastucture;
 using TailBlazer.Infrastucture.AppState;
+using TailBlazer.LogViewer.Infrastucture;
+using TailBlazer.LogViewer.Views.Tail;
 using TailBlazer.Views.FileDrop;
 using TailBlazer.Views.Options;
 using TailBlazer.Views.Recent;
-using TailBlazer.Views.Tail;
 
 namespace TailBlazer.Views.WindowManagement
 {

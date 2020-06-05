@@ -7,7 +7,7 @@ using System.Windows.Media;
 using DynamicData.Kernel;
 using TailBlazer.Domain.Formatting;
 
-namespace TailBlazer.Controls
+namespace TailBlazer.LogViewer.Controls
 {
     public class HighlightTextControl : Control
     {

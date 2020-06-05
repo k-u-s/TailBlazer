@@ -2,6 +2,7 @@
 using System.Linq;
 using FluentAssertions;
 using TailBlazer.Domain.Formatting;
+using TailBlazer.LogViewer.Views.Formatting;
 using TailBlazer.Views.Formatting;
 using Xunit;
 

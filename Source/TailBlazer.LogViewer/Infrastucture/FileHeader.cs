@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using DynamicData.Binding;
 
-namespace TailBlazer.Infrastucture
+namespace TailBlazer.LogViewer.Infrastucture
 {
     public class FileHeader: AbstractNotifyPropertyChanged
     {

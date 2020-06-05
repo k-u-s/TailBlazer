@@ -4,9 +4,9 @@ using System.Reactive.Disposables;
 using DynamicData;
 using TailBlazer.Domain.Infrastructure;
 using TailBlazer.Domain.Settings;
-using TailBlazer.Views.Searching;
+using TailBlazer.LogViewer.Views.Searching;
 
-namespace TailBlazer.Views.Recent
+namespace TailBlazer.LogViewer.Views.Recent
 {
     public class RecentSearchCollection : IRecentSearchCollection, IDisposable
     {

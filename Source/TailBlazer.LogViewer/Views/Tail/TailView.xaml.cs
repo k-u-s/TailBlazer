@@ -3,9 +3,8 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using TailBlazer.LogViewer;
 
-namespace TailBlazer.Views.Tail
+namespace TailBlazer.LogViewer.Views.Tail
 {
     /// <summary>
     /// Interaction logic for TailView.xaml
