@@ -122,6 +122,7 @@ namespace TailBlazer.Views.Tail
             KeyAutoTail = new Command(() => { AutoTail = true; });
             OpenSearchOptionsCommand = new Command(async () =>
             {
+                // TODO: resolve dragblz lack of support for net core
                 //await Task.Run(() =>
                 //{
                 //    var content = objectProvider.Get<SearchOptionsViewModel>(new Argument<ICombinedSearchMetadataCollection>(combinedSearchMetadataCollection));
