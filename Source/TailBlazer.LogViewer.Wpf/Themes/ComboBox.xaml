@@ -6,7 +6,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.combobox.xaml" />
         <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.T.xaml" />-->
-        <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/TextBoxes.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/TextBoxes.xaml" />
 
 
     </ResourceDictionary.MergedDictionaries>

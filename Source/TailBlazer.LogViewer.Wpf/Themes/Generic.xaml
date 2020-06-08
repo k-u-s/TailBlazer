@@ -4,9 +4,9 @@
     xmlns:controls="clr-namespace:TailBlazer.LogViewer.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Icons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Lines.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/SearchResultIndicator.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/Icons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/Lines.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/SearchResultIndicator.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type controls:HighlightTextControl}">

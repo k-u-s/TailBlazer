@@ -4,24 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:formatting="clr-namespace:TailBlazer.LogViewer.Views.Formatting"
-             xmlns:virtualisation="clr-namespace:TailBlazer.LogViewer.Infrastucture.Virtualisation"
+             xmlns:formatting="clr-namespace:TailBlazer.LogViewer.Views.Formatting;assembly=TailBlazer.LogViewer"
+             xmlns:virtualisation="clr-namespace:TailBlazer.LogViewer.Infrastucture.Virtualisation;assembly=TailBlazer.LogViewer"
              xmlns:local="clr-namespace:TailBlazer.LogViewer.Views.Searching"
+             xmlns:searching="clr-namespace:TailBlazer.LogViewer.Views.Searching;assembly=TailBlazer.LogViewer"
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance local:IconSelector}">
+             d:DataContext="{d:DesignInstance searching:IconSelector}">
 
     <Control.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/Colours.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
 
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.textbox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.button.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.listbox.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Buttons.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/ToggleButtons.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/TextBoxes.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/Buttons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/ToggleButtons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/TextBoxes.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Control.Resources>
@@ -98,7 +99,7 @@
                     Content="Close"
                     ToolTip="Close and do nothing"
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                    CommandParameter="{x:Static local:IconSelectorResult.None}" />
+                    CommandParameter="{x:Static searching:IconSelectorResult.None}" />
 
 
             <Button Grid.Column="1" IsDefault="False"
@@ -107,7 +108,7 @@
                     ToolTip="Allow Tail Blazer to choose you icon"
                     Content="Use Default"
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                    CommandParameter="{x:Static local:IconSelectorResult.UseDefault}" />
+                    CommandParameter="{x:Static searching:IconSelectorResult.UseDefault}" />
 
             <Button Grid.Column="2" IsDefault="True"
                     HorizontalAlignment="Right"
@@ -116,7 +117,7 @@
                     Content="Use Selected"
                     IsEnabled="{Binding HasSelection.Value}"
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                    CommandParameter="{x:Static local:IconSelectorResult.UseSelected}" />
+                    CommandParameter="{x:Static searching:IconSelectorResult.UseSelected}" />
         </Grid>
 
     </Grid>

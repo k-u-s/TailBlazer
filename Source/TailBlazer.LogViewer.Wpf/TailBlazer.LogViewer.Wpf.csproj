@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Page Update="Themes\Dragable.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Searching\IconSelectorView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Searching\SearchOptionsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="gong-wpf-dragdrop" Version="2.2.0" />
+    <PackageReference Include="MaterialDesignColors" Version="1.2.6" />
+    <PackageReference Include="MaterialDesignThemes" Version="3.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TailBlazer.Domain\TailBlazer.Domain.csproj" />
+    <ProjectReference Include="..\TailBlazer.LogViewer\TailBlazer.LogViewer.csproj" />
+  </ItemGroup>
+
+</Project>

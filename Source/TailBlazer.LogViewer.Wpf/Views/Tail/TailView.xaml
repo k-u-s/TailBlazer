@@ -8,11 +8,13 @@
              xmlns:search="clr-namespace:TailBlazer.Domain.FileHandling.Search;assembly=TailBlazer.Domain"
              xmlns:fileHandling="clr-namespace:TailBlazer.Domain.FileHandling;assembly=TailBlazer.Domain"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:infrastucture="clr-namespace:TailBlazer.LogViewer.Infrastucture"
-             xmlns:searching="clr-namespace:TailBlazer.LogViewer.Views.Searching"
-             xmlns:tail="clr-namespace:TailBlazer.LogViewer.Views.Tail"
+             xmlns:infrastucture="clr-namespace:TailBlazer.LogViewer.Infrastucture;assembly=TailBlazer.LogViewer"
+             xmlns:searching="clr-namespace:TailBlazer.LogViewer.Views.Searching;assembly=TailBlazer.LogViewer"
+             xmlns:searchingView="clr-namespace:TailBlazer.LogViewer.Views.Searching"
+             xmlns:tail="clr-namespace:TailBlazer.LogViewer.Views.Tail;assembly=TailBlazer.LogViewer"
+             xmlns:tailView="clr-namespace:TailBlazer.LogViewer.Views.Tail"
              xmlns:controls="clr-namespace:TailBlazer.LogViewer.Controls"
-             xmlns:virtualisation="clr-namespace:TailBlazer.LogViewer.Infrastucture.Virtualisation"
+             xmlns:virtualisation="clr-namespace:TailBlazer.LogViewer.Infrastucture.Virtualisation;assembly=TailBlazer.LogViewer"
              TextElement.Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}, Path=(TextElement.Foreground)}"
              Background="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}, Path=Background}"
              x:Name="Control"
@@ -25,7 +27,7 @@
     <Control.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/Colours.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
 
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.listbox.xaml" />
@@ -34,12 +36,12 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.togglebutton.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.combobox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.Font.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/ProgressBar.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Buttons.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/ToggleButtons.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/TextBoxes.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/ListBox.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Lines.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/ProgressBar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/Buttons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/ToggleButtons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/TextBoxes.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/ListBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/Lines.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <infrastucture:CheckedToLengthConverter TrueValue="*" FalseValue="*" x:Key="c1" />
@@ -52,15 +54,15 @@
             <system:Int32 x:Key="One">1</system:Int32>
 
             <DataTemplate DataType="{x:Type searching:SearchOptionsViewModel}">
-                <searching:SearchOptionsView />
+                <searchingView:SearchOptionsView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type searching:IconSelector}">
-                <searching:IconSelectorView />
+                <searchingView:IconSelectorView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type tail:TailViewModel}">
-                <tail:TailView />
+                <tailView:TailView />
             </DataTemplate>
         </ResourceDictionary>
     </Control.Resources>

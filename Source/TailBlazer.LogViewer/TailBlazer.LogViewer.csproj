@@ -30,13 +30,4 @@
     <PackageReference Update="NETStandard.Library" Version="2.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Page Update="Views\Searching\IconSelectorView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Searching\SearchOptionsView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-
 </Project>
