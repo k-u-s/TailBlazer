@@ -12,7 +12,7 @@ using TailBlazer.LogViewer.Infrastucture;
 
 namespace TailBlazer.LogViewer
 {
-    class ServiceLocator
+    public class ServiceLocator
     {
         private static Lazy<Container> _containerLazy = new Lazy<Container>(() => BaseServiceLocator.ContainerFactory(DispatcherProvider));
         public static Container Container = _containerLazy.Value;

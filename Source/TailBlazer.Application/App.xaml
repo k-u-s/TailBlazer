@@ -3,8 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:fileDrop="clr-namespace:TailBlazer.Views.FileDrop;assembly=TailBlazer"
-    xmlns:controls="clr-namespace:TailBlazer.LogViewer.Controls;assembly=TailBlazer.LogViewer"
+    xmlns:controlsView="clr-namespace:TailBlazer.LogViewer.Controls;assembly=TailBlazer.LogViewer.Wpf"
     xmlns:tail="clr-namespace:TailBlazer.LogViewer.Views.Tail;assembly=TailBlazer.LogViewer"
+    xmlns:tailView="clr-namespace:TailBlazer.LogViewer.Views.Tail;assembly=TailBlazer.LogViewer.Wpf"
+    xmlns:searchingView="clr-namespace:TailBlazer.LogViewer.Views.Searching;assembly=TailBlazer.LogViewer.Wpf"
     xmlns:searching="clr-namespace:TailBlazer.LogViewer.Views.Searching;assembly=TailBlazer.LogViewer">
     <Application.Resources>
         <ResourceDictionary>
@@ -15,15 +17,15 @@
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type searching:SearchOptionsViewModel}">
-                <searching:SearchOptionsView />
+                <searchingView:SearchOptionsView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type searching:IconSelector}">
-                <searching:IconSelectorView />
+                <searchingView:IconSelectorView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type tail:TailViewModel}">
-                <tail:TailView />
+                <tailView:TailView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type fileDrop:FileDropContainer}">
@@ -33,7 +35,7 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <controls:FileIcon
+                    <controlsView:FileIcon
                         Width="22"
                         Height="22"
                         BorderThickness="0"

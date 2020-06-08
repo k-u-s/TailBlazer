@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:recent="clr-namespace:TailBlazer.Views.Recent"
              xmlns:controls="clr-namespace:TailBlazer.LogViewer.Controls;assembly=TailBlazer.LogViewer"
+             xmlns:controlsView="clr-namespace:TailBlazer.LogViewer.Controls;assembly=TailBlazer.LogViewer.Wpf"
              TextOptions.TextFormattingMode="Ideal" 
               TextOptions.TextRenderingMode="Auto" 
              mc:Ignorable="d" 
@@ -16,7 +17,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.listbox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.textbox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.button.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer;component/Themes/Buttons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/Buttons.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -51,7 +52,7 @@
 
                                 <StackPanel Orientation="Horizontal">
 
-                                    <controls:OpenFileIcon Width="14" Height="14"/>
+                                    <controlsView:OpenFileIcon Width="14" Height="14"/>
                                     <TextBlock Foreground="{DynamicResource MaterialDesignBody}" 
                                            FontWeight="Light"
                                            Margin="5 2 4 2" 

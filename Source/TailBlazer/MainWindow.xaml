@@ -14,7 +14,8 @@
     xmlns:tailBlazer="clr-namespace:TailBlazer"
     xmlns:windowManagement="clr-namespace:TailBlazer.Views.WindowManagement"
     xmlns:infrastuctureLog="clr-namespace:TailBlazer.LogViewer.Infrastucture;assembly=TailBlazer.LogViewer"
-    xmlns:controls1="clr-namespace:TailBlazer.LogViewer.Controls;assembly=TailBlazer.LogViewer"
+    xmlns:infrastuctureLogView="clr-namespace:TailBlazer.LogViewer.Infrastucture;assembly=TailBlazer.LogViewer.Wpf"
+    xmlns:controlsView="clr-namespace:TailBlazer.LogViewer.Controls;assembly=TailBlazer.LogViewer.Wpf"
     x:Name="Window"
     Title="Tail Blazer"
     Width="950"
@@ -46,7 +47,7 @@
                 <ResourceDictionary Source="pack://application:,,,/Dragablz;component/Themes/MaterialDesign.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <infrastuctureLog:InvertedBooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter" />
+            <infrastuctureLogView:InvertedBooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter" />
 
             <DataTemplate DataType="{x:Type infrastuctureLog:FileHeader}">
                 <TextBlock
@@ -96,7 +97,7 @@
                             Command="{Binding ExitCommmand}"
                             ToolTip="Exit Tail Blazer">
                             <StackPanel Orientation="Horizontal">
-                                <controls1:ExitIcon Width="18" Height="18" />
+                                <controlsView:ExitIcon Width="18" Height="18" />
                                 <TextBlock
                                     Margin="8,0,0,0"
                                     VerticalAlignment="Center"
@@ -150,7 +151,7 @@
                     Command="{Binding OpenFileCommand}"
                     ToolTip="Open file"
                     ToolTipService.ShowOnDisabled="True">
-                    <controls1:FileIcon
+                    <controlsView:FileIcon
                         Width="14"
                         Height="14"
                         Foreground="White" />
@@ -219,7 +220,7 @@
                                 HorizontalAlignment="Center"
                                 FontSize="26"
                                 Text="Drag files here" />
-                            <controls1:FileIcon
+                            <controlsView:FileIcon
                                 Width="50"
                                 Height="50"
                                 BorderThickness="0"

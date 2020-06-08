@@ -53,6 +53,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TailBlazer.Domain\TailBlazer.Domain.csproj" />
+    <ProjectReference Include="..\TailBlazer.LogViewer.Wpf\TailBlazer.LogViewer.Wpf.csproj" />
     <ProjectReference Include="..\TailBlazer.LogViewer\TailBlazer.LogViewer.csproj" />
   </ItemGroup>
 
