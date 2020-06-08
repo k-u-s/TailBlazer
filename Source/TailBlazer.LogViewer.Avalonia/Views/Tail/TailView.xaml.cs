@@ -3,6 +3,7 @@ using System.Windows;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using TailBlazer.LogViewer.Infrastucture.Virtualisation;
 
 namespace TailBlazer.LogViewer.Views.Tail
 {
@@ -42,9 +43,14 @@ namespace TailBlazer.LogViewer.Views.Tail
         internal void SetModel(FileInfo fileInfo)
         {
             var factory = ServiceLocator.Default.Get<TailViewModelFactory>();
-            var vieModel = factory.Create(fileInfo);
+            var headeredView = factory.Create(fileInfo);
 
-            DataContext = (TailViewModel)vieModel.Content;
+            var viewModel = (TailViewModel)headeredView.Content;
+            DataContext = viewModel;
+
+            //TODO: Remove it after integrating with virtual scroll viewer
+            var scroller = (IScrollReceiver) viewModel;
+            scroller.ScrollBoundsChanged(new ScrollBoundsArgs(88, 0));
         }
     }
 }

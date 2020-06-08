@@ -317,74 +317,79 @@
 
         <!--infrastucture:DependencyObjectHook.Receiver="{Binding KeyboardNavigationHandler}"-->
 
-        <ListBox Margin="0 4 0 2"
-            Grid.Row="1"
-            VerticalAlignment="Stretch"
-            MinHeight="50"
-            Items="{Binding Lines}"
-            SelectedItem="{Binding SelectedItem}"
-            >
-          <!--
-            Style="{StaticResource LinesListBoxStyle}"
-            infrastucture:ListBoxHelper.SelectionMonitor="{Binding SelectionMonitor}"
-          -->
+        <ScrollViewer Grid.Row="1"
+                      MinHeight="50"
+                      Margin="0 4 0 2">
+          <ItemsRepeater  Name="TailViewLines"
+                          VerticalAlignment="Stretch"
+                          Items="{Binding Lines}"
+                          >
+            <!--
+                     SelectedItem="{Binding SelectedItem}"
+              Style="{StaticResource LinesListBoxStyle}"
+              infrastucture:ListBoxHelper.SelectionMonitor="{Binding SelectionMonitor}"
+            -->
           
+            <ItemsRepeater.ItemTemplate>
+                <DataTemplate>
+                    <Border CornerRadius="4" Padding="4">
+                        <TextBlock Text="{Binding PlainText.Value}"/>
+                    </Border>
+                </DataTemplate>
+            </ItemsRepeater.ItemTemplate>
           
-          <ListBox.ItemsPanel>
-            <ItemsPanelTemplate>
-              <Grid>
-                <TextBlock Text="{Binding PlainText}"/>
-              </Grid>
-              
-              <!--
-              <virtualisation:LinesScrollPanel ItemHeight="20"
-                                  ScrollReceiver="{Binding}"
-                                  StartIndex="{Binding FirstIndex}"
-                                  TotalItems="{Binding LatestCount.Value}"
-                                  HorizontalScrollChanged="{Binding HorizonalScrollChanged}"
-                                  CharacterWidth ="6.59666666666667"
-                                  TotalCharacters="{Binding MaximumChars.Value, UpdateSourceTrigger=PropertyChanged}"/>
-              -->
-            </ItemsPanelTemplate>
-          </ListBox.ItemsPanel>
+            <!--
+            <ListBox.ItemsPanel>
+              <ItemsPanelTemplate>
+                <virtualisation:LinesScrollPanel ItemHeight="20"
+                                    ScrollReceiver="{Binding}"
+                                    StartIndex="{Binding FirstIndex}"
+                                    TotalItems="{Binding LatestCount.Value}"
+                                    HorizontalScrollChanged="{Binding HorizonalScrollChanged}"
+                                    CharacterWidth ="6.59666666666667"
+                                    TotalCharacters="{Binding MaximumChars.Value, UpdateSourceTrigger=PropertyChanged}"/>
+              </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            -->
           
-          <ListBox.KeyBindings>
-            <KeyBinding Gesture="CTRL+C" Command="{Binding CopyToClipboardCommand}"/>
-          </ListBox.KeyBindings>
+            <ItemsRepeater.KeyBindings>
+              <KeyBinding Gesture="CTRL+C" Command="{Binding CopyToClipboardCommand}"/>
+            </ItemsRepeater.KeyBindings>
 
-          <ListBox.ContextMenu>
-            <ContextMenu>
-              <ContextMenu.Items>
-                <MenuItem Header="_Copy" Command="{Binding CopyToClipboardCommand}">
-                  <MenuItem.Icon>
-                    <Viewbox Width="16" Height="16">
-                      <Canvas Width="24" Height="24">
-                        <Path Data="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"
-                      Fill="{DynamicResource MaterialDesignBody}" />
-                      </Canvas>
-                    </Viewbox>
-                  </MenuItem.Icon>
-                </MenuItem>
+            <ItemsRepeater.ContextMenu>
+              <ContextMenu>
+                <ContextMenu.Items>
+                  <MenuItem Header="_Copy" Command="{Binding CopyToClipboardCommand}">
+                    <MenuItem.Icon>
+                      <Viewbox Width="16" Height="16">
+                        <Canvas Width="24" Height="24">
+                          <Path Data="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"
+                        Fill="{DynamicResource MaterialDesignBody}" />
+                        </Canvas>
+                      </Viewbox>
+                    </MenuItem.Icon>
+                  </MenuItem>
 
-                <MenuItem Header="Clear" Command="{Binding ClearCommand}">
-                  <MenuItem.Icon>
-                    <!--
-                    <wpf:PackIcon Kind="Eraser" Width="16" Height="16"/>
-                    -->
-                  </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Un-Clear" Command="{Binding UnClearCommand}">
-                  <MenuItem.Icon>
-                    <!--
-                    <wpf:PackIcon Kind="Undo" Width="16" Height="16"/>
-                    -->
-                  </MenuItem.Icon>
-                </MenuItem>
-              </ContextMenu.Items>
+                  <MenuItem Header="Clear" Command="{Binding ClearCommand}">
+                    <MenuItem.Icon>
+                      <!--
+                      <wpf:PackIcon Kind="Eraser" Width="16" Height="16"/>
+                      -->
+                    </MenuItem.Icon>
+                  </MenuItem>
+                  <MenuItem Header="Un-Clear" Command="{Binding UnClearCommand}">
+                    <MenuItem.Icon>
+                      <!--
+                      <wpf:PackIcon Kind="Undo" Width="16" Height="16"/>
+                      -->
+                    </MenuItem.Icon>
+                  </MenuItem>
+                </ContextMenu.Items>
 
-            </ContextMenu>
-          </ListBox.ContextMenu>
-        </ListBox>
+              </ContextMenu>
+            </ItemsRepeater.ContextMenu>
+          </ItemsRepeater>          
+        </ScrollViewer>
 
         <GridSplitter Grid.Row="2"
                   Height="5"
