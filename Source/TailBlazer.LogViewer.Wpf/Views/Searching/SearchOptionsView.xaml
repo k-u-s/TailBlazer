@@ -10,6 +10,7 @@
     xmlns:dd="urn:gong-wpf-dragdrop"
     xmlns:searching="clr-namespace:TailBlazer.LogViewer.Views.Searching;assembly=TailBlazer.LogViewer"
     xmlns:infrastucture="clr-namespace:TailBlazer.LogViewer.Infrastucture;assembly=TailBlazer.LogViewer"
+    xmlns:infrastuctureView="clr-namespace:TailBlazer.LogViewer.Infrastucture"
     d:DataContext="{d:DesignInstance searching:SearchOptionsViewModel}"
     mc:Ignorable="d">
 
@@ -33,8 +34,8 @@
 
             <searching:IsGlobalToIconConverter x:Key="IsGlobalToIconConverter" />
             <system:Int32 x:Key="Zero">0</system:Int32>
-            <infrastucture:EqualsToVisibilityConverter x:Key="EqualsToVisibilityConverter" />
-            <infrastucture:NotEqualsToVisibilityConverter x:Key="NotEqualsToVisibilityConverter" />
+            <infrastuctureView:EqualsToVisibilityConverter x:Key="EqualsToVisibilityConverter" />
+            <infrastuctureView:NotEqualsToVisibilityConverter x:Key="NotEqualsToVisibilityConverter" />
 
             <Style
                 x:Key="SearchButton"

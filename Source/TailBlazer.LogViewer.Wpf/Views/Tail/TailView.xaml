@@ -15,6 +15,7 @@
              xmlns:tailView="clr-namespace:TailBlazer.LogViewer.Views.Tail"
              xmlns:controls="clr-namespace:TailBlazer.LogViewer.Controls"
              xmlns:virtualisation="clr-namespace:TailBlazer.LogViewer.Infrastucture.Virtualisation;assembly=TailBlazer.LogViewer"
+             xmlns:infrastuctureView="clr-namespace:TailBlazer.LogViewer.Infrastucture"
              TextElement.Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}, Path=(TextElement.Foreground)}"
              Background="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}, Path=Background}"
              x:Name="Control"
@@ -44,12 +45,12 @@
                 <ResourceDictionary Source="pack://application:,,,/TailBlazer.LogViewer.Wpf;component/Themes/Lines.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <infrastucture:CheckedToLengthConverter TrueValue="*" FalseValue="*" x:Key="c1" />
-            <infrastucture:CheckedToLengthConverter TrueValue="175" FalseValue="0" x:Key="c2" />
+            <infrastuctureView:CheckedToLengthConverter TrueValue="*" FalseValue="*" x:Key="c1" />
+            <infrastuctureView:CheckedToLengthConverter TrueValue="175" FalseValue="0" x:Key="c2" />
 
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
             <materialDesign:EqualityToVisibilityConverter x:Key="EqualityToVisibilityConverter"/>
-            <infrastucture:NotEqualsToVisibilityConverter x:Key="NotEqualsToVisibilityConverter"/>
+            <infrastuctureView:NotEqualsToVisibilityConverter x:Key="NotEqualsToVisibilityConverter"/>
             <system:Int32 x:Key="Zero">0</system:Int32>
             <system:Int32 x:Key="One">1</system:Int32>
 

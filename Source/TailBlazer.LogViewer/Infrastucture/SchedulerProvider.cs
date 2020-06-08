@@ -10,9 +10,9 @@ namespace TailBlazer.LogViewer.Infrastucture
 
         public IScheduler Background { get; } = TaskPoolScheduler.Default;
 
-        public SchedulerProvider(Dispatcher dispatcher)
+        public SchedulerProvider(IScheduler mainScheduler)
         {
-            MainThread = new DispatcherScheduler(dispatcher);
+            MainThread = mainScheduler;
         }
 
     }

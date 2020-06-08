@@ -1,0 +1,565 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"             
+             xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:search="clr-namespace:TailBlazer.Domain.FileHandling.Search;assembly=TailBlazer.Domain"
+             xmlns:fileHandling="clr-namespace:TailBlazer.Domain.FileHandling;assembly=TailBlazer.Domain"
+             xmlns:infrastucture="clr-namespace:TailBlazer.LogViewer.Infrastucture;assembly=TailBlazer.LogViewer"
+             xmlns:infrastuctureAvalonia="clr-namespace:TailBlazer.LogViewer.Infrastucture;assembly=TailBlazer.LogViewer.Avalonia"
+             xmlns:searching="clr-namespace:TailBlazer.LogViewer.Views.Searching;assembly=TailBlazer.LogViewer"
+             xmlns:searchingView="clr-namespace:TailBlazer.LogViewer.Views.Searching"
+             xmlns:tail="clr-namespace:TailBlazer.LogViewer.Views.Tail;assembly=TailBlazer.LogViewer"
+             xmlns:tailView="clr-namespace:TailBlazer.LogViewer.Views.Tail"
+             xmlns:controls="clr-namespace:TailBlazer.LogViewer.Controls"
+             x:Class="TailBlazer.LogViewer.Views.Tail.TailView">
+  <Control.Resources>
+    <ResourceDictionary>
+      
+      <infrastuctureAvalonia:CheckedToLengthConverter TrueValue="*" FalseValue="*" x:Key="c1" />
+      <infrastuctureAvalonia:CheckedToLengthConverter TrueValue="175" FalseValue="0" x:Key="c2" />
+      
+      <infrastuctureAvalonia:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+      <infrastuctureAvalonia:EqualityToVisibilityConverter x:Key="EqualityToVisibilityConverter"/>
+      <infrastuctureAvalonia:NotEqualsToVisibilityConverter x:Key="NotEqualsToVisibilityConverter"/>
+      <infrastuctureAvalonia:EqualityToBooleanConverter x:Key="EqualityToBooleanConverter"/>
+      <infrastuctureAvalonia:NotEqualsToBooleanConverter x:Key="NotEqualsToBooleanConverter"/>
+      <system:Int32 x:Key="Zero">0</system:Int32>
+      <system:Int32 x:Key="One">1</system:Int32>
+
+      <!--
+      <DataTemplate DataType="{x:Type searching:SearchOptionsViewModel}">
+        <searchingView:SearchOptionsView />
+      </DataTemplate>
+
+      <DataTemplate DataType="{x:Type searching:IconSelector}">
+        <searchingView:IconSelectorView />
+      </DataTemplate>
+      
+      <DataTemplate DataType="{x:Type tail:TailViewModel}">
+        <tailView:TailView />
+      </DataTemplate>
+      -->
+    </ResourceDictionary>
+  </Control.Resources>
+
+  <!--
+  <UserControl.CommandBindings >
+    <CommandBinding Command="ApplicationCommands.Find"
+                    Executed="ApplicationCommandFind_Executed"/>
+  </UserControl.CommandBindings>
+  -->
+
+  <!--
+  <wpf:DialogHost Identifier="{Binding Id}"
+                  CloseOnClickAway="True"
+                  IsOpen="{Binding IsDialogOpen}"
+                  DialogContent="{Binding DialogContent}"
+                  TextElement.Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}, Path=(TextElement.Foreground)}"
+                  Background="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}, Path=Background}"
+             
+                    >
+    -->
+    <Grid Margin="4" >
+      <ProgressBar
+         IsVisible="{Binding FileStatus.Value, 
+                      Converter={StaticResource EqualityToBooleanConverter},
+                      ConverterParameter={x:Static fileHandling:FileStatus.Loading}}"
+  
+          MinWidth="75"
+          MinHeight="75"
+          Value="50"
+          IsIndeterminate="True"/>
+      <!--
+          Style="{StaticResource TailBlazerCircularProgressBar}"
+      -->
+
+      <StackPanel
+            IsVisible="{Binding FileStatus.Value, 
+                          Converter={StaticResource EqualityToBooleanConverter},
+                          ConverterParameter={x:Static fileHandling:FileStatus.Error}}"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Orientation="Vertical"
+            IsHitTestVisible="False">
+
+        <TextBlock  FontSize="26" HorizontalAlignment="Center" Margin="0 0 0 4" Text="Cannot blaze this tail"/>
+        <!--
+        <controls:TailBlazerIcon
+            Foreground="{DynamicResource ValidationErrorBrush}"
+            Width="48"
+            Height="48"/>
+          -->
+        <TextBlock FontSize="26" Margin="0 4 0 0" Text="When possible business will resume" HorizontalAlignment="Center"/>
+
+      </StackPanel>
+
+
+
+      <Grid
+          IsVisible="{Binding FileStatus.Value, 
+                        Converter={StaticResource EqualityToBooleanConverter},
+                        ConverterParameter={x:Static fileHandling:FileStatus.Loaded}}"
+          Margin="-4 0 -4 0">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="{Binding  Path=InlineViewerVisible.Value, Mode=TwoWay, Converter={StaticResource c1}}"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="{Binding  Path=InlineViewerVisible.Value, Mode=TwoWay, Converter={StaticResource c2}}"/>
+          <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Grid
+            Margin="0 4 0 2" KeyboardNavigation.TabNavigation="Cycle">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+          </Grid.ColumnDefinitions>
+
+
+          <ToggleButton Name="SearchHintsToggleButton"                                    
+                         VerticalAlignment="Bottom"
+                         Margin="2 0 0 0"
+                         Padding="2"
+                         Width="32"
+                         Height="32"
+                         IsChecked="{Binding SearchHints.UseRegex}">
+            <!--
+                         TabIndex="5"
+                         IsTabStop="False"
+            -->
+            <i:Interaction.Behaviors>
+              <ia:DataTriggerBehavior Binding="{Binding SearchHints.IsValid.Value}" ComparisonCondition="Equal" Value="False">
+                    <ia:ChangePropertyAction TargetObject="{Binding #SearchHintsToggleButton}" PropertyName="Foreground" Value="{DynamicResource ValidationErrorBrush}"/>
+                </ia:DataTriggerBehavior>
+            </i:Interaction.Behaviors>
+          </ToggleButton>
+
+          <TextBox Grid.Column="1"
+                   x:Name="SearchTextBox"
+                   VerticalAlignment="Bottom"
+                   MinWidth="200">
+            <!--
+                   Style="{StaticResource FloatingHintAndErrorTextBox}"
+                   Text="{Binding SearchHints.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                   TabIndex="0"
+                   Validation.ErrorTemplate="{StaticResource BorderOnlyValidationErrorTemplate}"
+                   wpf:HintAssist.Hint="{Binding SearchHints.Message.Value}"
+                   wpf:ValidationAssist.UsePopup="False"
+            <TextBox.InputBindings>
+              <KeyBinding Key="Enter" Command="{Binding SearchHints.AddSearchCommand}"/>
+            </TextBox.InputBindings>
+            -->
+          </TextBox>
+
+          <TextBlock
+                  Margin="8 0 0 0"
+                  Grid.Column="2"
+                  Opacity="0.56"
+                  Width="43"
+                  TextAlignment="Center"
+                  TextWrapping="Wrap"
+                  IsVisible="{Binding SearchCollection.Count, 
+                                Converter={StaticResource EqualityToBooleanConverter},
+                                ConverterParameter={StaticResource One}}"
+                  VerticalAlignment="Center"
+                  Text="Switch Results"/>
+
+
+          <ListBox
+              Grid.Column="3" Margin="4 2 0 2"
+              IsVisible="{Binding SearchCollection.Count, 
+                            Converter={StaticResource NotEqualsToBooleanConverter}, 
+                            ConverterParameter={StaticResource One}}"
+              SelectedItem="{Binding SearchCollection.Selected}"
+              Items="{Binding SearchCollection.Items}">
+            <!--
+              TabIndex="1"
+              Style="{DynamicResource FilterListBoxStyle}"
+            -->
+
+            <ListBox.ItemTemplate>
+              <DataTemplate DataType="{x:Type searching:SearchViewModel}">
+                <Grid x:Name="Selection" VerticalAlignment="Center">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition  Width="Auto"/>
+                    <ColumnDefinition  Width="Auto"/>
+                  </Grid.ColumnDefinitions>
+
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                  </Grid.RowDefinitions>
+
+                  <!--
+                  <TextBlock Margin="4 0 0 0">
+                    <Run FontSize="12"
+                        FontWeight="Bold"
+                        BaselineAlignment="Bottom"
+                        Text="{Binding Text, Mode=OneWay}"/>
+                    <Run BaselineAlignment="Bottom" Text="{Binding  CountText}"/>
+                  </TextBlock>
+                  -->
+                  
+                  <ProgressBar  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                          Margin="0 4 0 0"
+                          Width="{Binding ElementName=Selection, Path=Width}"
+                          Orientation="Horizontal"
+                          VerticalAlignment="Bottom"
+                          IsVisible="{Binding Searching}"
+                          Value="{Binding SegmentsSearched}"
+                          Maximum="{Binding Segments}"
+                          Minimum="0"
+                          IsIndeterminate="False"/>
+
+
+                  <Button IsVisible="{Binding SearchType, 
+                                        Converter={StaticResource EqualityToBooleanConverter},
+                                        ConverterParameter={x:Static search:SearchType.User}}"
+                      Grid.Row="0"  Grid.Column="2"
+                      VerticalAlignment="Center"
+                      Command="{Binding RemoveCommand}"/>
+                  <!--
+                      ToolTip="{Binding RemoveTooltip}"
+                      Style="{StaticResource CloseButtonStyle}"
+                  -->
+                </Grid>
+              </DataTemplate>
+
+            </ListBox.ItemTemplate>
+
+            <ListBox.ItemsPanel>
+              <ItemsPanelTemplate>
+                <VirtualizingStackPanel Orientation="Horizontal"/>
+              </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <!--
+            <ListBox.ItemContainerStyle>
+              <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource  MaterialDesignListBoxItem}">
+                <Style.Setters>
+                  <Setter Property="Padding" Value="4 0 4 0"/>
+                  <Setter Property="Height" Value="36"/>
+                </Style.Setters>
+              </Style>
+            </ListBox.ItemContainerStyle>
+            -->
+          </ListBox>
+
+
+          <!--</Border>-->
+
+          <Button Grid.Column="4"
+              Command="{Binding OpenSearchOptionsCommand}"
+              HorizontalAlignment="Left"
+              Width="24" Height="24"
+              Padding="0"
+              VerticalAlignment="Center">
+            <!--
+                  TabIndex="2"
+              ToolTip="Search options"
+              Style="{StaticResource MaterialDesignFlatButton}"
+            <controls:SettingsIcon  Width="14" Height="14"/>
+            -->
+          </Button>
+
+          <StackPanel
+              VerticalAlignment="Center"
+              Grid.Column="5" Margin="4 0 4 0" Orientation="Vertical">
+
+            <CheckBox HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                IsChecked="{Binding AutoTail, Mode=TwoWay}"
+                Margin="4 0 4 0"
+                Content="Follow Tail">
+              <!--
+                TabIndex="3"
+              
+              
+              
+              <CheckBox.InputBindings>
+                <KeyBinding Key="Space"
+                Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.KeyAutoTail}"/>
+              </CheckBox.InputBindings>
+              -->
+            </CheckBox>
+
+            <CheckBox IsVisible="{Binding CanViewInline.Value}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                IsChecked="{Binding ShowInline}"
+                Content="Show inline"
+                Margin="4 0 4 0"/>
+            <!--
+                TabIndex="4"
+            -->
+
+
+          </StackPanel>
+        </Grid>
+
+        <Border Grid.Row="0" Grid.Column="0"
+                    IsVisible="False"
+                    BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueMidBrush}"/>
+
+        <!--infrastucture:DependencyObjectHook.Receiver="{Binding KeyboardNavigationHandler}"-->
+
+        <ListBox Margin="0 4 0 2"
+            Grid.Row="1"
+            VerticalAlignment="Stretch"
+            MinHeight="50"
+            Items="{Binding Lines}"
+            SelectedItem="{Binding SelectedItem}"
+            >
+          <!--
+            Style="{StaticResource LinesListBoxStyle}"
+            infrastucture:ListBoxHelper.SelectionMonitor="{Binding SelectionMonitor}"
+          -->
+          
+          
+          <!--
+          <ListBox.ItemsPanel>
+            <ItemsPanelTemplate>
+              <virtualisation:LinesScrollPanel ItemHeight="20"
+                                  ScrollReceiver="{Binding}"
+                                  StartIndex="{Binding FirstIndex}"
+                                  TotalItems="{Binding LatestCount.Value}"
+                                  HorizontalScrollChanged="{Binding HorizonalScrollChanged}"
+                                  CharacterWidth ="6.59666666666667"
+                                  TotalCharacters="{Binding MaximumChars.Value, UpdateSourceTrigger=PropertyChanged}"/>
+            </ItemsPanelTemplate>
+          </ListBox.ItemsPanel>
+          
+          <ListBox.InputBindings>
+            <KeyBinding Key="C" Modifiers="Control" Command="{Binding CopyToClipboardCommand}"/>
+          </ListBox.InputBindings>
+          -->
+
+          <ListBox.ContextMenu>
+            <ContextMenu>
+              <ContextMenu.Items>
+                <MenuItem Header="_Copy" Command="{Binding CopyToClipboardCommand}">
+                  <MenuItem.Icon>
+                    <Viewbox Width="16" Height="16">
+                      <Canvas Width="24" Height="24">
+                        <Path Data="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"
+                      Fill="{DynamicResource MaterialDesignBody}" />
+                      </Canvas>
+                    </Viewbox>
+                  </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Clear" Command="{Binding ClearCommand}">
+                  <MenuItem.Icon>
+                    <!--
+                    <wpf:PackIcon Kind="Eraser" Width="16" Height="16"/>
+                    -->
+                  </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Un-Clear" Command="{Binding UnClearCommand}">
+                  <MenuItem.Icon>
+                    <!--
+                    <wpf:PackIcon Kind="Undo" Width="16" Height="16"/>
+                    -->
+                  </MenuItem.Icon>
+                </MenuItem>
+              </ContextMenu.Items>
+
+            </ContextMenu>
+          </ListBox.ContextMenu>
+        </ListBox>
+
+        <GridSplitter Grid.Row="2"
+                  Height="5"
+                  IsVisible="{Binding Path=DataContext.InlineViewerVisible.Value, ElementName=Control}"
+                  BorderThickness="1" HorizontalAlignment="Stretch"/>
+        <!--
+                  Background="{StaticResource PrimaryHueMidBrush}"
+        
+                  ResizeDirection="Rows"
+        -->
+
+
+        <ContentPresenter Grid.Row="3"
+            Content="{Binding InlineViewer,Mode=OneWay}" />
+        <!--
+            ContentTemplate="{StaticResource LinesDataTemplate}"
+        -->
+
+        <Grid    Grid.Row="4" Margin = "0 0 0 -4"  >
+          <!--
+             Background="{StaticResource PrimaryHueMidBrush}"
+        -->
+
+          <!--
+          <Grid.Resources>
+            <Style TargetType="{x:Type TextBlock}">
+              <Setter Property="Opacity" Value="0.76"/>
+              <Setter Property="VerticalAlignment" Value="Center"/>
+              <Setter Property="Foreground" Value="{StaticResource PrimaryHueMidForegroundBrush}"/>
+            </Style>
+          </Grid.Resources>
+          -->
+
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+
+          <!--</>-->
+
+          <StackPanel Grid.Column="1" Margin="4 2 6 2"
+               Orientation="Horizontal"
+                                
+               HorizontalAlignment="Left">
+
+            <!--
+            <wpf:PopupBox
+                    Foreground="{DynamicResource MaterialDesignBody}"
+                    PopupMode="Click"
+                    PlacementMode="TopAndAlignLeftEdges">
+              <wpf:PopupBox.ToggleContent>
+                <TextBlock FontSize="10" Text="{Binding Name}"/>
+              </wpf:PopupBox.ToggleContent>
+
+
+              <Grid Margin="6 0 6 0"
+                      TextOptions.TextFormattingMode="Ideal"
+                      TextOptions.TextRenderingMode="Auto"
+                    HorizontalAlignment="Left">
+                <Grid.Resources>
+                  <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="5 0 0 0"/>
+                    <Setter Property="FontWeight" Value="Light"/>
+                    <Setter Property="FontSize" Value="10"/>
+                    <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFont}"/>
+                  </Style>
+
+                  <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignFlatButton}">
+                    <Setter Property="Padding" Value="4 2 4 0"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                    <Setter Property="Margin" Value="4 0 4 0"/>
+                    <Setter Property="FontWeight" Value="Light"/>
+                    <Setter Property="FontSize" Value="10"/>
+                    <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFont}"/>
+                  </Style>
+
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Button Command="{Binding OpenFileCommand}">
+                  <StackPanel Orientation="Horizontal">
+                    <wpf:PackIcon
+                            VerticalAlignment="Center"
+                            Kind="FileOutline"
+                            Width="14" Height="14"/>
+                    <TextBlock Text="Open file"/>
+                  </StackPanel>
+                </Button>
+
+                <Button Grid.Row="1" Command="{Binding OpenFolderCommand}">
+                  <StackPanel Orientation="Horizontal">
+                    <wpf:PackIcon
+                        VerticalAlignment="Center"
+                        Kind="Folder"
+                        Width="14" Height="14"/>
+                    <TextBlock Text="Open folder"/>
+                  </StackPanel>
+                </Button>
+
+                <Button Grid.Row="2" Command="{Binding CopyPathToClipboardCommand}">
+                  <StackPanel Orientation="Horizontal">
+                    <wpf:PackIcon
+                            VerticalAlignment="Center"
+                            Kind="ClipboardOutline"
+                            Width="14" Height="14"/>
+                    <TextBlock Text="Copy path to clipboard"/>
+                  </StackPanel>
+                </Button>
+
+              </Grid>
+
+            </wpf:PopupBox>
+            -->
+
+            <Border
+                Margin="4 2 2 0"
+                Opacity="0.56"
+                BorderThickness="1 0 0 0" BorderBrush="White"/>
+
+            <TextBlock
+                Margin="4 0 0 0"
+                Text="{Binding  CountText.Value, StringFormat='\{0}.'}"
+                VerticalAlignment="Center"/>
+
+
+            <TextBlock Margin="6 0 0 0" Text="{Binding FileSizeText.Value}" />
+
+          </StackPanel>
+
+          <StackPanel
+          Margin="4 2 4 2"
+          Grid.Column="2"
+                  HorizontalAlignment="Right"
+                  Orientation="Horizontal">
+
+            <Button Width="22" Height="22"
+                    Margin="4 0 0 0"
+                    Padding="0"
+                    Foreground="White"
+                    Opacity="0.76"
+                    Command="{Binding UnClearCommand}">
+              <!--
+                    ToolTip="Un-clear to monitor entire file"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    
+                    
+                    
+              <wpf:PackIcon Kind="Undo" Width="16" Height="16"/>
+              -->
+            </Button>
+
+            <Button  Width="22" Height="22"
+                     Margin="4 0 0 0"
+                     Padding="0"
+                     Opacity="0.76"
+                     Foreground="White"
+                    Command="{Binding ClearCommand}">
+              <!--
+                     ToolTip="Clear to monitor tail only"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    
+                    
+                    
+              <wpf:PackIcon Kind="Eraser" Width="16" Height="16"/>
+              -->
+            </Button>
+
+
+
+          </StackPanel>
+        </Grid>
+      </Grid>
+
+    </Grid>
+  <!--
+  </wpf:DialogHost>
+  -->
+</UserControl>

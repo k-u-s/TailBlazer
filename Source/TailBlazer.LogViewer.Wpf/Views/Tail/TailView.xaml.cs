@@ -22,17 +22,6 @@ namespace TailBlazer.LogViewer.Views.Tail
                 nameof(FilePath), typeof(string),
                 typeof(TailView), new UIPropertyMetadata("", OnFilePathChanged));
 
-        public TailViewModel ViewModel
-        {
-            get { return (TailViewModel)GetValue(ViewModelProperty); }
-            set { SetValue(ViewModelProperty, value); }
-        }
-
-        public static readonly DependencyProperty ViewModelProperty
-            = DependencyProperty.Register(
-                nameof(ViewModel), typeof(TailViewModel),
-                typeof(TailView));
-
         public TailView()
         {
             InitializeComponent();
