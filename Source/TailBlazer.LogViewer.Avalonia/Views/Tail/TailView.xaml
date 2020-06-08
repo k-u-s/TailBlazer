@@ -145,7 +145,10 @@
           <TextBox Grid.Column="1"
                    x:Name="SearchTextBox"
                    VerticalAlignment="Bottom"
-                   MinWidth="200">
+                   MinWidth="200"
+            
+                   Text="{Binding SearchHints.SearchText, Mode=TwoWay}"
+            >
             <!--
                    Style="{StaticResource FloatingHintAndErrorTextBox}"
                    Text="{Binding SearchHints.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
@@ -153,10 +156,10 @@
                    Validation.ErrorTemplate="{StaticResource BorderOnlyValidationErrorTemplate}"
                    wpf:HintAssist.Hint="{Binding SearchHints.Message.Value}"
                    wpf:ValidationAssist.UsePopup="False"
-            <TextBox.InputBindings>
-              <KeyBinding Key="Enter" Command="{Binding SearchHints.AddSearchCommand}"/>
-            </TextBox.InputBindings>
             -->
+            <TextBox.KeyBindings>
+              <KeyBinding Gesture="Enter" Command="{Binding SearchHints.AddSearchCommand}"/>
+            </TextBox.KeyBindings>
           </TextBox>
 
           <TextBlock
@@ -199,15 +202,17 @@
                     <RowDefinition Height="Auto"/>
                   </Grid.RowDefinitions>
 
-                  <!--
-                  <TextBlock Margin="4 0 0 0">
+                  <TextBlock Margin="4 0 0 0"
+                              Text="{Binding Text, Mode=OneWay}"
+                             >
+                    <!--
                     <Run FontSize="12"
                         FontWeight="Bold"
                         BaselineAlignment="Bottom"
                         Text="{Binding Text, Mode=OneWay}"/>
                     <Run BaselineAlignment="Bottom" Text="{Binding  CountText}"/>
-                  </TextBlock>
                   -->
+                        </TextBlock>
                   
                   <ProgressBar  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                           Margin="0 4 0 0"
@@ -279,17 +284,17 @@
                 VerticalAlignment="Center"
                 IsChecked="{Binding AutoTail, Mode=TwoWay}"
                 Margin="4 0 4 0"
-                Content="Follow Tail">
+                Content="Follow Tail"
+              >
               <!--
                 TabIndex="3"
-              
-              
-              
-              <CheckBox.InputBindings>
-                <KeyBinding Key="Space"
-                Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.KeyAutoTail}"/>
-              </CheckBox.InputBindings>
               -->
+              <CheckBox.KeyBindings>
+                <KeyBinding Gesture="Space"
+                            Command="{Binding RelativeSource={
+                                          RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, 
+                                      Path=DataContext.KeyAutoTail}"/>
+              </CheckBox.KeyBindings>
             </CheckBox>
 
             <CheckBox IsVisible="{Binding CanViewInline.Value}"
@@ -325,9 +330,13 @@
           -->
           
           
-          <!--
           <ListBox.ItemsPanel>
             <ItemsPanelTemplate>
+              <Grid>
+                <TextBlock Text="{Binding PlainText}"/>
+              </Grid>
+              
+              <!--
               <virtualisation:LinesScrollPanel ItemHeight="20"
                                   ScrollReceiver="{Binding}"
                                   StartIndex="{Binding FirstIndex}"
@@ -335,13 +344,13 @@
                                   HorizontalScrollChanged="{Binding HorizonalScrollChanged}"
                                   CharacterWidth ="6.59666666666667"
                                   TotalCharacters="{Binding MaximumChars.Value, UpdateSourceTrigger=PropertyChanged}"/>
+              -->
             </ItemsPanelTemplate>
           </ListBox.ItemsPanel>
           
-          <ListBox.InputBindings>
-            <KeyBinding Key="C" Modifiers="Control" Command="{Binding CopyToClipboardCommand}"/>
-          </ListBox.InputBindings>
-          -->
+          <ListBox.KeyBindings>
+            <KeyBinding Gesture="CTRL+C" Command="{Binding CopyToClipboardCommand}"/>
+          </ListBox.KeyBindings>
 
           <ListBox.ContextMenu>
             <ContextMenu>
