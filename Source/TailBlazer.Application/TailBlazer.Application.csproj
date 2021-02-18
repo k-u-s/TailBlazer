@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFrameworks>net5.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <StartupObject>TailBlazer.Application.BootStrap</StartupObject>
   </PropertyGroup>
