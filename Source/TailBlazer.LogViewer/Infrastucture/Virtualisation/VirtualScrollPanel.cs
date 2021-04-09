@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using ReactiveUI;
 using TimeSpan = System.TimeSpan;
 
 namespace TailBlazer.LogViewer.Infrastucture.Virtualisation
@@ -376,7 +377,8 @@ namespace TailBlazer.LogViewer.Infrastucture.Virtualisation
 
             //stop the control from losing focus on page up / down
             Observable.Timer(TimeSpan.FromMilliseconds(125))
-                .ObserveOn(Dispatcher).Subscribe(l =>
+                .ObserveOn(RxApp.MainThreadScheduler)
+                .Subscribe(l =>
                 {
                     if (_itemsControl.Items.Count == 0) return;
 

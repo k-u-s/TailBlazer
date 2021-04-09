@@ -4,7 +4,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.progressbar.xaml" />
-           </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="TailBlazerCircularProgressBar" TargetType="{x:Type ProgressBar}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
@@ -55,14 +55,6 @@
                                             <ArcSegment Size="{Binding ElementName=PathGrid, Path=ActualWidth, Converter={StaticResource ArcSizeConverter}, Mode=OneWay}"                                                             
                                                                 SweepDirection="Clockwise"
                                                                 >
-                                                <ArcSegment.IsLargeArc>
-                                                    <MultiBinding Converter="{StaticResource LargeArcConverter}">
-                                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Value" />
-                                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Minimum" />
-                                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Maximum" />
-                                                        <Binding ElementName="FullyIndeterminateGridScaleTransform" Path="ScaleX" />
-                                                    </MultiBinding>
-                                                </ArcSegment.IsLargeArc>
                                                 <ArcSegment.Point>
                                                     <MultiBinding Converter="{StaticResource ArcEndPointConverter}">
                                                         <Binding ElementName="PathGrid" Path="ActualWidth" />
